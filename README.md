@@ -1,4 +1,4 @@
-\# E-commerce Website Project
+# E-commerce Website Project
 
 
 
@@ -8,7 +8,7 @@ This is a group project for designing a lightweight e-commerce website for essen
 
 
 
-\## Team Members
+## Team Members
 
 * Jiexian He - Frontend development
 * Zhihui Gan - Database design
@@ -16,7 +16,7 @@ This is a group project for designing a lightweight e-commerce website for essen
 
 
 
-\## Project Status
+## Project Status
 
 See Docs/weekly\_progress.md for weekly updates.
 
