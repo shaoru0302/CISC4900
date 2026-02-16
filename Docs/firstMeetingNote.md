@@ -1,4 +1,4 @@
-\# Project First Meeting Summary  
+# Project First Meeting Summary  
 
 \*\*Date:\*\* 2026-02-09 
 
@@ -18,7 +18,7 @@
 
 
 
-\## 1. Overview
+## 1. Overview
 
 
 
@@ -30,23 +30,23 @@ We met with the instructor to refine the project direction and clarify technical
 
 
 
-\## 2. Instructor Recommendations
+## 2. Instructor Recommendations
 
 
 
-\### 2.1 Authentication \& User Roles
+### 2.1 Authentication \& User Roles
 
 
 
-\- Implement Google email sign-in using an API.
+- Implement Google email sign-in using an API.
 
-\- Support role-based access control:
+- Support role-based access control:
 
 &nbsp; - \*\*Admin\*\* → redirected to admin dashboard.
 
 &nbsp; - \*\*User\*\* → redirected to user homepage.
 
-\- Users should be able to view their \*\*order history\*\*.
+- Users should be able to view their \*\*order history\*\*.
 
 
 
@@ -54,31 +54,15 @@ We met with the instructor to refine the project direction and clarify technical
 
 
 
-\### 2.2 Product Data \& Images
+### 2.2 Product Data \& Images
 
 
 
-\- Instead of manually creating all product data, we may reference existing online databases.
+- Instead of manually creating all product data, we may reference existing online databases.
 
-\- We can write code to fetch and display product information and images dynamically.
+- We can write code to fetch and display product information and images dynamically.
 
-\- Research reliable public data sources before implementation.
-
-
-
----
-
-
-
-\### 2.3 Search Feature
-
-
-
-\- Implement a keyword-based product search feature.
-
-\- If feasible, explore image-based search as an advanced enhancement.
-
-\- Text-based search is the minimum requirement.
+- Research reliable public data sources before implementation.
 
 
 
@@ -86,15 +70,15 @@ We met with the instructor to refine the project direction and clarify technical
 
 
 
-\### 2.4 Payment Integration
+### 2.3 Search Feature
 
 
 
-\- Real payment processing is NOT required.
+- Implement a keyword-based product search feature.
 
-\- However, we must integrate at least one Stripe API.
+- If feasible, explore image-based search as an advanced enhancement.
 
-\- The goal is to demonstrate page redirection and API interaction rather than successful payment confirmation.
+- Text-based search is the minimum requirement.
 
 
 
@@ -102,7 +86,23 @@ We met with the instructor to refine the project direction and clarify technical
 
 
 
-\## 3. Next Meeting
+### 2.4 Payment Integration
+
+
+
+- Real payment processing is NOT required.
+
+- However, we must integrate at least one Stripe API.
+
+- The goal is to demonstrate page redirection and API interaction rather than successful payment confirmation.
+
+
+
+---
+
+
+
+## 3. Next Meeting
 
 
 
@@ -116,11 +116,11 @@ By that meeting, we are expected to have:
 
 
 
-\- A basic frontend structure
+- A basic frontend structure
 
-\- A well-designed homepage
+- A well-designed homepage
 
-\- Completed research on:
+- Completed research on:
 
 &nbsp; - Google sign-in integration
 
@@ -128,7 +128,7 @@ By that meeting, we are expected to have:
 
 &nbsp; - Stripe API integration
 
-\- Clear implementation strategy for each component
+- Clear implementation strategy for each component
 
 
 
@@ -140,19 +140,19 @@ Non-core features can be refined after this milestone.
 
 
 
-\## 4. Action Items
+## 4. Action Items
 
 
 
-\- Research Google authentication API
+- Research Google authentication API
 
-\- Research Stripe API usage and redirect flow
+- Research Stripe API usage and redirect flow
 
-\- Identify possible product databases or public APIs
+- Identify possible product databases or public APIs
 
-\- Begin frontend layout and homepage design
+- Begin frontend layout and homepage design
 
-\- Define admin vs user page structure
+- Define admin vs user page structure
 
 
 
@@ -160,7 +160,7 @@ Non-core features can be refined after this milestone.
 
 
 
-\## 5. Key Takeaway
+## 5. Key Takeaway
 
 
 
