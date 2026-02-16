@@ -1,16 +1,16 @@
 # Project First Meeting Summary  
 
-\*\*Date:\*\* 2026-02-09 
+**Date:** 2026-02-09 
 
-\*\*Time:\*\* 3:00 PM 
+**Time:** 3:00 PM 
 
-\*\*Course:\*\* CISC 4900
+**Course:** CISC 4900
 
-\*\*Location:\*\* Room 2122b  
+**Location:** Room 2122b  
 
-\*\*Team Members:\*\* Jiexian He, Zhihui Gan, Shaoru Wu-Zhu
+**Team Members:** Jiexian He, Zhihui Gan, Shaoru Wu-Zhu
 
-\*\*Professor:\*\* Priyanka Samanta
+**Professor:** Priyanka Samanta
 
 
 
@@ -42,11 +42,11 @@ We met with the instructor to refine the project direction and clarify technical
 
 - Support role-based access control:
 
-&nbsp; - \*\*Admin\*\* → redirected to admin dashboard.
+&nbsp; - **Admin** → redirected to admin dashboard.
 
-&nbsp; - \*\*User\*\* → redirected to user homepage.
+&nbsp; - **User** → redirected to user homepage.
 
-- Users should be able to view their \*\*order history\*\*.
+- Users should be able to view their **order history**.
 
 
 
@@ -106,9 +106,9 @@ We met with the instructor to refine the project direction and clarify technical
 
 
 
-\*\*Date:\*\* March 9  
+**Date:** March 9  
 
-\*\*Time:\*\* 3:00 PM  
+**Time:** 3:00 PM  
 
 
 
