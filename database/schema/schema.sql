@@ -1,0 +1,15 @@
+-- BeautyNest Database Schema (placeholder)
+-- Target DB: PostgreSQL
+-- Next tables (MVP):
+-- 1) users
+-- 2) categories
+-- 3) products
+-- 4) carts
+-- 5) cart_items
+-- 6) orders
+-- 7) order_items
+-- 8) payments (or payment_status fields on orders)
+
+-- Notes:
+-- - We will seed products from DummyJSON and store them in our DB.
+-- - Categories will align with site navigation (Necklaces, Earrings, Bracelets, Handicrafts).
