@@ -1,12 +1,12 @@
-\# BeautyNest  
+# BeautyNest  
 
-\## Project Proposal (Draft)
+## Project Proposal (Draft)
 
 
 
-\*\*Course:\*\* CISC 4900  
+**Course:** CISC 4900  
 
-\*\*Section:\*\* VC1A  
+**Section:** VC1A  
 
 
 
@@ -14,9 +14,9 @@
 
 
 
-\## Project Supervisor
+## Project Supervisor
 
-\*\*Priyanka Samanta\*\*  
+**Priyanka Samanta**  
 
 Email: samanta@brooklyn.cuny.edu  
 
@@ -26,15 +26,15 @@ Email: samanta@brooklyn.cuny.edu
 
 
 
-\## Team Members
+## Team Members
 
 
 
-\- \*\*Jiexian He\*\* – Frontend Lead  
+- **Jiexian He** – Frontend Lead  
 
-\- \*\*Zhihui Gan\*\* – Database \& Backend Support  
+- **Zhihui Gan** – Database & Backend Support  
 
-\- \*\*Shaoru Wu-Zhu\*\* – Documentation \& Coordination  
+- **Shaoru Wu-Zhu** – Documentation & Coordination  
 
 
 
@@ -42,7 +42,7 @@ Email: samanta@brooklyn.cuny.edu
 
 
 
-\# 1. Project Overview
+# 1. Project Overview
 
 
 
@@ -62,7 +62,7 @@ The platform models a small-scale online store where all products are managed in
 
 
 
-\# 2. Initial Scope (MVP Definition)
+# 2. Initial Scope (MVP Definition)
 
 
 
@@ -70,39 +70,39 @@ At this early stage, we define the following Minimum Viable Product (MVP):
 
 
 
-\## 2.1 Customer-Side Features
+## 2.1 Customer-Side Features
 
 
 
-\- Homepage with product categories  
+- Homepage with product categories  
 
-\- Product catalog page  
+- Product catalog page  
 
-\- Product detail view  
+- Product detail view  
 
-\- Keyword-based search functionality  
+- Keyword-based search functionality  
 
-\- Shopping cart (session-based)  
+- Shopping cart (session-based)  
 
-\- Simplified checkout flow  
+- Simplified checkout flow  
 
-\- User login (Google OAuth planned)  
+- User login (Google OAuth planned)  
 
-\- Order confirmation page  
+- Order confirmation page  
 
-\- Basic order history page  
-
-
-
-\## 2.2 Admin Features (Planned)
+- Basic order history page  
 
 
 
-\- Admin login (role-based access control)  
+## 2.2 Admin Features (Planned)
 
-\- Product creation and updates  
 
-\- Order viewing interface  
+
+- Admin login (role-based access control)  
+
+- Product creation and updates  
+
+- Order viewing interface  
 
 
 
@@ -114,7 +114,7 @@ The scope may be refined based on development progress and supervisor feedback.
 
 
 
-\# 3. System Architecture (High-Level Design)
+# 3. System Architecture (High-Level Design)
 
 
 
@@ -122,43 +122,37 @@ The system follows a standard three-tier architecture:
 
 
 
-\## 3.1 Frontend (UI Layer)
+## 3.1 Frontend (UI Layer)
+
+- Built with HTML, CSS, and JavaScript  
+
+- Responsible for rendering product listings and handling user interactions  
+
+- Communicates with backend via RESTful API calls (JSON format)  
 
 
 
-\- Built with HTML, CSS, and JavaScript  
-
-\- Responsible for rendering product listings and handling user interactions  
-
-\- Communicates with backend via RESTful API calls (JSON format)  
-
-
-
-\## 3.2 Backend (Application Layer)
+## 3.2 Backend (Application Layer)
 
 
 
 Built using Node.js and Express.js.  
 
-
-
 Handles:
 
+- Authentication (Google OAuth planned)  
 
+- Role-based access control  
 
-\- Authentication (Google OAuth planned)  
+- Product APIs  
 
-\- Role-based access control  
+- Order creation and management  
 
-\- Product APIs  
-
-\- Order creation and management  
-
-\- Checkout logic  
+- Checkout logic  
 
 
 
-\## 3.3 Database (Data Layer)
+## 3.3 Database (Data Layer)
 
 
 
@@ -166,13 +160,13 @@ A relational database (MySQL or PostgreSQL – planned) will store:
 
 
 
-\- Users  
+- Users  
 
-\- Products  
+- Products  
 
-\- Orders  
+- Orders  
 
-\- Order Items  
+- Order Items  
 
 
 
@@ -188,41 +182,21 @@ No external product API integration is required.
 
 
 
-\# 4. Preliminary Key Workflows
+# 4. Preliminary Key Workflows
 
 
 
-\## 4.1 Product Browsing Workflow
+## 4.1 Product Browsing Workflow
 
 
 
-1\. User opens the catalog page  
+1. User opens the catalog page  
 
-2\. Frontend sends request to backend  
+2. Frontend sends request to backend  
 
-3\. Backend retrieves product data from the database  
+3. Backend retrieves product data from the database  
 
-4\. Product list is dynamically rendered on the frontend  
-
-
-
----
-
-
-
-\## 4.2 Search Workflow
-
-
-
-1\. User enters keyword  
-
-2\. Frontend sends: GET/api/products?query=keyword
-
-3\. Backend filters products from the database  
-
-4\. Filtered results are returned as JSON  
-
-5\. Frontend displays search results  
+4. Product list is dynamically rendered on the frontend  
 
 
 
@@ -230,21 +204,19 @@ No external product API integration is required.
 
 
 
-\## 4.3 Checkout Workflow (Simplified)
+## 4.2 Search Workflow
 
 
 
-1\. User adds products to the cart  
+1. User enters keyword  
 
-2\. Cart state is stored in the session  
+2. Frontend sends: GET/api/products?query=keyword
 
-3\. User clicks checkout  
+3. Backend filters products from the database  
 
-4\. Backend creates a pending order record  
+4. Filtered results are returned as JSON  
 
-5\. Stripe API integration is planned for payment simulation  
-
-6\. Order status is updated after simulated confirmation  
+5. Frontend displays search results  
 
 
 
@@ -252,23 +224,45 @@ No external product API integration is required.
 
 
 
-\# 5. Tools \& Technologies (Tentative)
+## 4.3 Checkout Workflow (Simplified)
 
 
 
-\- HTML5 / CSS3 / JavaScript  
+1. User adds products to the cart  
 
-\- Node.js + Express.js  
+2. Cart state is stored in the session  
 
-\- Passport.js (Google OAuth – planned)  
+3. User clicks checkout  
 
-\- Stripe API (planned for checkout simulation)  
+4. Backend creates a pending order record  
 
-\- MySQL / PostgreSQL (planned)  
+5. Stripe API integration is planned for payment simulation  
 
-\- Git \& GitHub for version control  
+6. Order status is updated after simulated confirmation  
 
-\- Zoom \& Discord for team communication  
+
+
+---
+
+
+
+# 5. Tools & Technologies (Tentative)
+
+
+
+- HTML5 / CSS3 / JavaScript  
+
+- Node.js + Express.js  
+
+- Passport.js (Google OAuth – planned)  
+
+- Stripe API (planned for checkout simulation)  
+
+- MySQL / PostgreSQL (planned)  
+
+- Git & GitHub for version control  
+
+- Zoom & Discord for team communication  
 
 
 
@@ -280,15 +274,15 @@ Tools may be adjusted as development progresses.
 
 
 
-\# 6. Team Responsibilities (Initial Division)
+# 6. Team Responsibilities (Initial Division)
 
 
 
-\- \*\*Frontend Lead:\*\* UI implementation and user interface integration  
+- **Frontend Lead:** UI implementation and user interface integration  
 
-\- \*\*Database \& Backend Support:\*\* Schema design and backend APIs  
+- **Database & Backend Support:** Schema design and backend APIs  
 
-\- \*\*Documentation \& Coordination:\*\* Repository setup, workflow tracking, integration support  
+- **Documentation & Coordination:** Repository setup, workflow tracking, login / logout / Stripe integration support  
 
 
 
@@ -300,23 +294,23 @@ All members will collaborate during the integration and testing phases.
 
 
 
-\# 7. Development Timeline (Preliminary Estimate)
+# 7. Development Timeline (Preliminary Estimate)
 
 
 
-| Weeks |Tasks				 |
+| Weeks |    Tasks				                |
 
-|-------|--------------------------------|
+|-------|---------------------------------|
 
-|   4–5   | UI \& Authentication                       |
+|  4–5  | UI & Authentication             |
 
-|   6–7   | Product \& Database Integration |
+|  6–7  | Product & Database Integration  |
 
-|   8–9   | Cart \& Order System                       |
+|  8–9  | Cart & Order System             |
 
-|  10–11 | Payment \& Admin Features             |
+| 10–11 | Payment & Admin Features        |
 
-|  12–15 | Testing \& Finalization                 |
+| 12–15 | Testing & Finalization          |
 
 
 
@@ -328,7 +322,7 @@ The timeline may be refined as development continues.
 
 
 
-\# 8. Conclusion
+# 8. Conclusion
 
 
 
