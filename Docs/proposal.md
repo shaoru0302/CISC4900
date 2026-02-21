@@ -296,25 +296,15 @@ All members will collaborate during the integration and testing phases.
 
 # 7. Development Timeline (Preliminary Estimate)
 
-
-| Weeks | Tasks |
-
-|---|---|
-
-| 4–5 | UI & Authentication |
-
-| 6–7 | Product & Database Integration |
-
-| 8–9 | Cart & Order System |
-
-| 10–11 | Payment & Admin Features |
-
-| 12–15 | Testing & Finalization |
-
-
+| Weeks  | Tasks |
+|--------|--------|
+| 4–5    | UI & Authentication |
+| 6–7    | Product & Database Integration |
+| 8–9    | Cart & Order System |
+| 10–11  | Payment & Admin Features |
+| 12–15  | Testing & Finalization |
 
 The timeline may be refined as development continues.
-
 
 
 ---
