@@ -298,19 +298,19 @@ All members will collaborate during the integration and testing phases.
 
 
 
-| Weeks |    Tasks				                |
+| Weeks | Tasks |
 
-|-------|---------------------------------|
+|-------|-------|
 
-|  4–5  | UI & Authentication             |
+|  4–5  | UI & Authentication |
 
-|  6–7  | Product & Database Integration  |
+|  6–7  | Product & Database Integration |
 
-|  8–9  | Cart & Order System             |
+|  8–9  | Cart & Order System |
 
-| 10–11 | Payment & Admin Features        |
+| 10–11 | Payment & Admin Features |
 
-| 12–15 | Testing & Finalization          |
+| 12–15 | Testing & Finalization |
 
 
 
