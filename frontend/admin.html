@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>User Dashboard - BeautyNest</title>
+  <title>Admin Dashboard - BeautyNest</title>
+  <link rel="stylesheet" href="project_css.css">
 
   <style>
     body {
@@ -40,15 +41,20 @@
       <a href="/logout">Logout</a>
     </nav>
 
-    <h2>User Page</h2>
+    <h2>Admin Dashboard</h2>
     <p id="welcomeText">Loading...</p>
+
+    <section>
+      <h3>Admin Controls</h3>
+      <p>Manage Products | View Orders | Update Inventory</p>
+    </section>
   </div>
 
   <script>
     fetch("/api/me")
       .then(res => res.json())
       .then(data => {
-        if (!data.loggedIn) {
+        if (!data.loggedIn || data.role !== "admin") {
           window.location.href = "/";
           return;
         }
