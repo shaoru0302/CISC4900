@@ -6,5 +6,5 @@ node_modules/
 .env
 **/.env
 
-# local seed/data files (optional)
+# local seed/data files 
 database/seed/jewelry.csv
