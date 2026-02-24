@@ -1,1 +1,3 @@
 database/seed/jewelry.csv
+**/node_modules/
+**/.env
