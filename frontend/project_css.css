@@ -1,0 +1,232 @@
+/* HOMEPAGE STRUCTURE (GLOBAL) */
+html, body {
+    height: 100%;
+    margin: 0;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 18px;               
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #F2EBDD;
+    color: #5A4A3F;
+}
+
+/* HEADER / BRAND*/
+.site-header {
+    font-family: Georgia, serif;
+}
+
+.brand-header {
+    background-color: #F2EBDD;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.brand-name {	
+    font-family: Georgia, serif;
+    font-size: 44px;
+    letter-spacing: 4px;
+    color: #C8A85A;
+    margin: 0;
+}
+
+/* BRAND NAME DESIGN */
+.brand-name::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: #C8A85A;
+    margin: 15px auto 0;
+}
+
+.brand-tagline {
+    font-size: 15px;
+    color: #7A6A5F;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+/* NAVIGATION */
+nav {
+    background-color: #EFE6D6;
+    text-align: center;
+    padding: 12px;
+    font-family: Georgia, serif;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 18px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #5A4A3F;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #C8A85A;
+}
+
+/* HERO SECTION- BACKGROUND IMAGE -NAMED AS "BG1"*/
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 140px 20px;
+    color: white;
+    background-image: url("BG1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Dark overlay to make text readable */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+/* Keep text and button above overlay */
+.hero h2,
+.hero p,
+.hero button {
+    position: relative;
+}
+
+.hero h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.hero p {  
+    font-size: 25px;
+    font-weight: 300;     
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+    max-width: 680px;
+    margin: 0 auto 30px;
+}
+
+/* Hero button styling */
+.hero button {
+    padding: 20px 30px;
+    background-color: #cf9f24;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    margin-top: 50px;
+}
+
+.hero button:hover {
+    background-color: #B89A4D;
+}
+
+/* PRODUCTS SECTION DESIGN*/
+.products {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* Product card layout */
+.product-card {
+    display: inline-block;
+    background-color: white;
+    width: 250px;
+    height: 420px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Product image sizing */
+.product-card img {
+    width: auto;
+    height: 250px;
+    border-radius: 5px;
+}
+
+/* Product button */
+.product-card button {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: #C8A85A;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #B89A4D;
+}
+
+/* Spacing container */
+.container {
+    margin-bottom: 20px;
+}
+
+/* smaller text */
+.product-description {
+    font-size: 14px;   
+    line-height: 1.4;  
+}
+
+/*SEARCH BOX */
+.search-container {
+    display: inline-block;
+}
+
+#searchInput {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #C8A85A;
+    outline: none;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #B89A4D;
+    box-shadow: 0 0 5px rgba(200,168,90,0.4);
+}
+
+/* FOOTER DESIGN*/
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 5px;
+    background-color: #E6DDCF;
+    font-size: 14px;
+}
