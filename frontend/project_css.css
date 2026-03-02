@@ -2,11 +2,15 @@
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
     text-align: center;
     font-family: Georgia, serif;
-    font-size: 18px;               
+    font-size: 18px;
     letter-spacing: 2px;
-    margin: 0;
+}
+
+html {
+    background-color: #F2EBDD;
 }
 
 body {
@@ -15,6 +19,11 @@ body {
     font-family: Arial, sans-serif;
     background-color: #F2EBDD;
     color: #5A4A3F;
+    min-width: 100%;
+}
+
+section {
+    margin: 0;
 }
 
 /* HEADER / BRAND*/
@@ -86,13 +95,18 @@ nav ul li a:hover {
 /* HERO SECTION- BACKGROUND IMAGE -NAMED AS "BG1"*/
 .hero {
     position: relative;
-    text-align: center;
-    padding: 140px 20px;
+    flex: 1;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    min-height: 65vh;
     color: white;
+    background-color: #F2EBDD;
     background-image: url("images/BG1.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 /* Dark overlay to make text readable */
@@ -104,31 +118,39 @@ nav ul li a:hover {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+/* Content block positioned below the pendant */
+.hero-content {
+    position: absolute;
+    left: 50%;
+    top: 62%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    max-width: 680px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
 /* Keep text and button above overlay */
-.hero h2,
-.hero p,
-.hero button {
+.hero-content p,
+.hero-content button {
     position: relative;
 }
 
-.hero h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-}
-
-.hero p {  
+.hero-content p {
     font-size: 25px;
-    font-weight: 300;     
+    font-weight: 300;
     letter-spacing: 0.5px;
     line-height: 1.8;
     max-width: 680px;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
 }
 
 /* Hero button styling */
-.hero button {
+.hero-content button {
     padding: 20px 30px;
     background-color: #cf9f24;
     border: none;
@@ -136,11 +158,23 @@ nav ul li a:hover {
     cursor: pointer;
     border-radius: 10px;
     transition: 0.3s;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
-.hero button:hover {
+.hero-content button:hover {
     background-color: #B89A4D;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 55vh;
+    }
+    .hero-content {
+        top: 58%;
+    }
+    .hero-content p {
+        font-size: 20px;
+    }
 }
 
 /* PRODUCTS SECTION DESIGN*/
