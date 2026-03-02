@@ -2,7 +2,7 @@
 
 
 
-Last Updated: Feb 21, 2026
+Last Updated: Mar 1, 2026
 
 
 
@@ -138,3 +138,49 @@ Last Updated: Feb 21, 2026
 
 - Integrate database with backend routes
 
+
+
+---
+
+
+
+## Week 5 (Feb 23 – Mar 1)
+
+
+### Completed
+
+- Completed Google OAuth authentication prototype
+
+- Implemented redirect/callback flow and session handling
+
+- Integrated login/logout UI with authentication backend
+
+- Pushed working demo branch to GitHub and updated README documentation
+
+- Finalized presentation slides and delivered live presentation
+
+- Unified login/logout UI layout style
+
+- Recorded first demo video
+
+
+
+### In Progress
+
+
+
+- Planning backend structure for search functionality
+
+- Designing search bar integration on homepage (frontend placeholder ready)
+
+- Reviewing database structure for future search queries
+
+### Next Steps
+
+- Implement backend search route
+
+- Connect the search bar frontend to the backend API
+
+- Test database query for product search
+
+- Refactor authentication and project structure if needed
