@@ -1,3 +1,10 @@
-database/seed/jewelry.csv
+# dependencies
+node_modules/
 **/node_modules/
+
+# environment files (DO NOT COMMIT)
+.env
 **/.env
+
+# local seed/data files 
+database/seed/jewelry.csv

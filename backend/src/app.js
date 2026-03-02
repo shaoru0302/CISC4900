@@ -9,8 +9,14 @@ const requireAuth = require("./middleware/requireAuth");
 const path = require("path");
 
 const app = express();
-app.use(express.static(path.join(__dirname, "../public")));
+const FRONTEND_DIR = path.join(__dirname, "../../frontend");
+app.use(express.static(FRONTEND_DIR));
 
+
+//always serve homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(FRONTEND_DIR, "index.html"));
+});
 
 // session
 app.use(
@@ -41,20 +47,15 @@ app.get("/api/me", (req, res) => {
   });
 });
 
-// test homepage
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
-});
-
 
 // protected user page
 app.get("/user", requireAuth("user"), (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/user.html"));
+  res.sendFile(path.join(FRONTEND_DIR, "user.html"));
 });
 
 // protected admin page
 app.get("/admin", requireAuth("admin"), (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/admin.html"));
+  res.sendFile(path.join(FRONTEND_DIR, "admin.html"));
 });
 
 // logout
