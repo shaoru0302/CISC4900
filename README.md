@@ -121,9 +121,13 @@ PORT=4900
 
 ### Start the server:
 cd backend
+
 node src/app.js
 
 ```
-Then open a browser and visit `http://localhost:4900` to access the BeautyNest website. Users can log in using Google OAuth and test features such as product browsing and keyword search.
+Then open a browser and visit `http://localhost:4900` to access the BeautyNest website.
 ```
+
+Users can log in using Google OAuth and test features such as product browsing and keyword search.
+
 
