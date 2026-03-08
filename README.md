@@ -101,16 +101,23 @@ docs/weekly_progress.md
 
 ### Clone the repository and install the required dependencies:
 git clone <repo-url>
+
 cd BeautyNest
+
 npm install
 
 ```
 Create a `.env` file in the project root and configure the required environment variables:
 ```
+
 GOOGLE_CLIENT_ID=your_google_client_id
+
 GOOGLE_CLIENT_SECRET=your_google_client_secret
+
 SESSION_SECRET=your_session_secret
+
 PORT=4900
+
 
 ### Start the server:
 cd backend
