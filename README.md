@@ -7,7 +7,7 @@ BeautyNest is a lightweight full-stack e-commerce website designed for selling e
 The system demonstrates frontend, backend, and database integration within a semester-long capstone project.
 
 
-
+---
 
 
 ## Team Members
@@ -16,7 +16,7 @@ The system demonstrates frontend, backend, and database integration within a sem
 * Zhihui Gan - Database design & Backend support
 * Shaoru Wu-Zhu - Documentation, repository management, coordination
 
-
+---
 
 ## Features (MVP)
 
@@ -35,9 +35,64 @@ The system demonstrates frontend, backend, and database integration within a sem
 - SQL-based product database (internally managed)
 
 
+---
+
+
+## System Architecture
+
+The system follows a three-layer architecture:
+
+User Browser → Frontend (HTML / CSS / JavaScript) → Backend API → SQL Database
+
+Additional integrations include:
+
+* Google OAuth authentication
+* Stripe checkout workflow (planned)
+
+System architecture and workflow diagrams are available in:
+
+```
+docs/diagrams
+```
+
+---
+
+## Database Design
+
+The project uses a relational database to manage the e-commerce data.
+
+Core tables include:
+
+* Users
+* Products
+* Orders
+* Order_Items
+
+The database schema supports user authentication, product management, and order creation.
+
+---
 
 ## Project Status
 
-Development in progess.
-See Docs/weekly\_progress.md for weekly updates.
+The project is currently under active development.
+
+### Completed:
+
+* Google OAuth authentication prototype
+* Product keyword search feature
+* Initial database schema implementation
+* System architecture diagrams
+
+### In progress:
+
+* Expanding product database
+* Product detail page improvements
+* Checkout workflow
+
+See the weekly development log for detailed updates:
+
+```
+docs/weekly_progress.md
+```
+
 
