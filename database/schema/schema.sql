@@ -4,6 +4,7 @@ CREATE DATABASE IF NOT EXISTS beautynest
     
 USE beautynest;
 
+
 CREATE TABLE IF NOT EXISTS users(
 	id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
@@ -60,4 +61,20 @@ CREATE TABLE IF NOT EXISTS order_items(
 
 SHOW TABLES;
 
+INSERT INTO products (name, description, price, stock, image_url) VALUES
 
+('Dragonfly Essential Oil Necklace','Lava Rocks, 24 Inch Chain',119,10,'images/N1.jpg'),
+('Lotus Essential Oil Necklace','Lava Rocks, 24 Inch Chain',125,10,'images/N2.jpg'),
+('Heart Essential Oil Necklace','Lava Rocks, 24 Inch Chain',108,10,'images/N3.jpg'),
+
+('Filigree Essential Oil Earring','Width 12 millimeters',68,15,'images/E1.jpg'),
+('Heart Essential Oil Earring','Width 12 millimeters',98,15,'images/E2.jpg'),
+('Flower Essential Oil Earring','Width 12 millimeters',88,15,'images/E3.jpg'),
+
+('Clouds Essential Oil Bracelet','25mm Diffuser Locket',38,20,'images/B1.jpg'),
+('Flower Essential Oil Bracelet','25mm Diffuser Locket',28.99,20,'images/B2.jpg'),
+('Tree Essential Oil Bracelet','25mm Diffuser Locket',29.99,20,'images/B3.jpg'),
+
+('Cherry Bloom Press on Nails','3D Floral Almond Press-On Nails Pink & Red',25.99,30,'images/Na1.jpg'),
+('Ocean Breeze Press on Nails','3D Floral Almond Press-On Nails Blue & White',28.99,30,'images/Na2.jpg'),
+('Golden Petals Press on Nails','3D Floral Almond Press-On Nails Orange & Pink',29.99,30,'images/Na3.jpg');

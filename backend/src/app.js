@@ -7,16 +7,12 @@ require("./config/passport");
 const authRoutes = require("./routes/auth");
 const requireAuth = require("./middleware/requireAuth");
 const path = require("path");
+const db = require("./config/db");   // connect to database
 
 const app = express();
 const FRONTEND_DIR = path.join(__dirname, "../../frontend");
+
 app.use(express.static(FRONTEND_DIR));
-
-
-//always serve homepage
-app.get("/", (req, res) => {
-  res.sendFile(path.join(FRONTEND_DIR, "index.html"));
-});
 
 // session
 app.use(
@@ -30,10 +26,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// routes
+// always serve homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(FRONTEND_DIR, "index.html"));
+});
+
+// auth routes
 app.use("/auth", authRoutes);
 
-// get user name by email
+// get user info
 app.get("/api/me", (req, res) => {
   if (!req.user) {
     return res.json({ loggedIn: false });
@@ -46,7 +47,6 @@ app.get("/api/me", (req, res) => {
     email: req.user.email,
   });
 });
-
 
 // protected user page
 app.get("/user", requireAuth("user"), (req, res) => {
@@ -70,8 +70,33 @@ app.get("/logout", (req, res, next) => {
   });
 });
 
+// search route
+app.get("/search", (req, res) => {
+  const keyword = req.query.q?.trim();
+
+  if (!keyword) {
+    return res.json([]);
+  }
+
+  const sql = `
+    SELECT * FROM products
+    WHERE name LIKE ?
+       OR description LIKE ?
+  `;
+
+  const value = `%${keyword}%`;
+
+  db.query(sql, [value, value], (err, results) => {
+    if (err) {
+      console.error("Search error:", err);
+      return res.status(500).json({ error: "Database error" });
+    }
+
+    res.json(results);
+  });
+});
+
 const PORT = process.env.PORT || 4900;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
