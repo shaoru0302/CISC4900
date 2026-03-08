@@ -1,17 +1,13 @@
 # Weekly Progress Log
 
 
-
-Last Updated: Mar 1, 2026
-
+Last Updated: Mar 8, 2026
 
 
 ---
 
 
-
 ## Week 1 (Jan 26 – Feb 1)
-
 
 
 ### Completed
@@ -23,7 +19,6 @@ Last Updated: Mar 1, 2026
 - Evaluated technical stack options
 
 
-
 ### Next Steps
 
 - Finalize project concept
@@ -31,13 +26,10 @@ Last Updated: Mar 1, 2026
 - Define MVP scope
 
 
-
 ---
 
 
-
 ## Week 2 (Feb 2 – Feb 8)
-
 
 
 ### Completed
@@ -51,7 +43,6 @@ Last Updated: Mar 1, 2026
 - Designed high-level system structure
 
 
-
 ### Next Steps
 
 - Draft project proposal
@@ -59,13 +50,10 @@ Last Updated: Mar 1, 2026
 - Outline system architecture
 
 
-
 ---
 
 
-
 ## Week 3 (Feb 9 – Feb 15)
-
 
 
 ### Completed
@@ -83,13 +71,11 @@ Last Updated: Mar 1, 2026
 - Began designing database schema (Users, Products, Orders)
 
 
-
 ### In Progress
 
 - Planning authentication flow
 
 - Preparing product data for database insertion
-
 
 
 ### Next Steps
@@ -99,13 +85,10 @@ Last Updated: Mar 1, 2026
 - Begin frontend layout development
 
 
-
 ---
 
 
-
 ## Week 4 (Feb 16 – Feb 22)
-
 
 
 ### Completed
@@ -117,7 +100,6 @@ Last Updated: Mar 1, 2026
 - Collected and organized product information for SQL tables
 
 
-
 ### In Progress
 
 - Frontend: Building category-based UI pages
@@ -125,7 +107,6 @@ Last Updated: Mar 1, 2026
 - Backend: Implementing login functionality
 
 - Database: Structuring product data into SQL tables
-
 
 
 ### Next Steps
@@ -139,9 +120,7 @@ Last Updated: Mar 1, 2026
 - Integrate database with backend routes
 
 
-
 ---
-
 
 
 ## Week 5 (Feb 23 – Mar 1)
@@ -162,18 +141,16 @@ Last Updated: Mar 1, 2026
 - Unified login/logout UI layout style
 
 - Recorded first demo video
-
-
+  
 
 ### In Progress
-
-
 
 - Planning backend structure for search functionality
 
 - Designing search bar integration on homepage (frontend placeholder ready)
 
 - Reviewing database structure for future search queries
+  
 
 ### Next Steps
 
@@ -184,3 +161,43 @@ Last Updated: Mar 1, 2026
 - Test database query for product search
 
 - Refactor authentication and project structure if needed
+
+
+---
+
+
+## Week 6 (Mar 2 – Mar 8)
+
+
+### Completed
+
+- Implemented keyword-based product search functionality
+
+- Created backend search route connected to MySQL database
+
+- Integrated search bar with frontend UI
+
+- Implemented a dynamic search results page
+
+- Verified database query results using sample product data
+
+
+### In Progress
+
+- Expanding product database with full catalog items
+
+- Preparing product images and descriptions for database population
+
+- Designing product detail page layout
+  
+
+### Next Steps
+
+- Populate database with full product dataset
+
+- Implement product detail page
+
+- Add multiple product images and extended descriptions
+
+- continue to write test cases for authentication and search functionality
+
