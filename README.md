@@ -100,7 +100,7 @@ docs/weekly_progress.md
 ## Installation & Execution Instructions
 
 ### Clone the repository and install the required dependencies:
-git clone **<repository-url>**
+git clone **repository_url**
 
 cd BeautyNest
 
