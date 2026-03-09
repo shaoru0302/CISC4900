@@ -131,3 +131,19 @@ Then open a browser and visit `http://localhost:4900` to access the BeautyNest w
 Users can log in using Google OAuth and test features such as product browsing and keyword search.
 
 
+## Product seed data
+
+The product seed file is located at:
+
+`database/seed/beautynest_products.csv`
+
+Import this CSV into the `products` table using MySQL Workbench Table Data Import Wizard.
+
+The `products` table includes a `category` field for catalog grouping:
+
+- necklace
+- earrings
+- bracelet
+- press_on_nails
+
+
