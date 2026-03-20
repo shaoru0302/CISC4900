@@ -146,6 +146,9 @@ Then open a browser and visit `http://localhost:4900` to access the BeautyNest w
 Users can log in using Google OAuth and test features such as product browsing and keyword search.
 
 
+---
+
+
 ## Product seed data
 
 The product seed file is located at:
