@@ -12,14 +12,15 @@ The system demonstrates frontend, backend, and database integration within a sem
 
 ## Team Members & Responsibilities
 
-* Jiexian He - Frontend development
-- (UI Design, Product Listing Interface, User Interaction, Frontend Layout, Styling, and Page Integration)
+- **Jiexian He - Frontend development**
+  - UI Design, Product Listing Interface, User Interaction, Frontend Layout, Styling, and Page Integration
   
-* Zhihui Gan - Database design & Backend
-- (Database Design, Product APIs, Product Detail Page, Order Data Storage, Payment Integration)
+- **Zhihui Gan - Database design & Backend**
+  - Database Design, Product APIs, Product Detail Page, Order Data Storage, Payment Integration
   
-* Shaoru Wu-Zhu - Backend Development
-- (Authentication, Search Functionality, Cart Logic, Order Processing, Admin Features) + (Diagram design, Documentation, Repository Management & Project Delivery)
+- **Shaoru Wu-Zhu - Backend Development**
+  - Authentication, Search Functionality, Cart Logic, Order Processing, Admin Features
+  - Diagram design, Documentation, Repository Management & Project Delivery
 
 
 ### Testing & Debugging
