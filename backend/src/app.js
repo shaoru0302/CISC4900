@@ -14,6 +14,8 @@ const FRONTEND_DIR = path.join(__dirname, "../../frontend");
 
 app.use(express.static(FRONTEND_DIR));
 
+
+
 // session
 app.use(
   session({

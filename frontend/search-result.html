@@ -20,6 +20,7 @@
             <li><a href="Necklace.html">Necklaces</a></li>
             <li><a href="Earring.html">Earrings</a></li>
             <li><a href="Bracelets.html">Bracelets</a></li>
+            <li><a href="EssentialOils.html">Oil & Accessories</a></li>
             <li><a href="Cart.html">🛒</a></li>
             <li><a href="/auth/google">Login</a></li>
             <li class="search-container">
@@ -30,7 +31,7 @@
 
     <section class="products">
         <h2 id="resultsTitle">Search Results</h2>
-        <div id="results"></div>
+        <div id="results" class="product-grid"></div>
         <p id="message"></p>
     </section>
     
@@ -64,13 +65,19 @@
             const card = document.createElement("div");
             card.className = "product-card";
 
+            const price = Number(product.price) || 0;
+            const imagePath = product.image_url ? `/${product.image_url}` : "";
+
+                console.log("image_url from DB:", product.image_url);
+                console.log("final image path:", imagePath);
+
              card.innerHTML = `
-                <img src="${product.image_url}" alt="${product.name}">
+                <img src="${imagePath}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p class="product-description">
                     Item Detail: ${product.description}
                 </p>
-                <p class="price">$${parseFloat(product.price).toFixed(2)}</p>
+                <p class="price">$${price.toFixed(2)}</p>
                 <button class="btn">Add to Cart</button>
             `;
 
