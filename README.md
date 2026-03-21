@@ -1,4 +1,4 @@
-# Beauty Nest E-commerce Website Project
+# BeautyNest E-commerce Website Project
 
 
 
