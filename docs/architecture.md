@@ -4,7 +4,7 @@ This project separates responsibilities between frontend and backend:
 
 ### Backend (Node.js / Express)
 - Handles authentication (Google OAuth)
-- Provides API endpoints (e.g. search, user info)
+- Provides API endpoints (e.g. search, user info /api/me)
 - Serves static frontend files
 
 ### Frontend (JavaScript)
@@ -15,4 +15,10 @@ This project separates responsibilities between frontend and backend:
 ### Design Rationale
 - Using localStorage for cart improves responsiveness
 - Reduces unnecessary backend requests during browsing
-- Keeps the system lightweight and suitable for a course project
+- Keeps the system lightweight and suitable for a course project scope
+
+### Note
+Some frontend-related business logic such as:
+- shopping cart management
+- order creation(UI-side handling)
+are intentionally implemented in frontend JavaScript files(e.g. shopping_cart.js, shopping_cart_page.js).
