@@ -21,7 +21,7 @@
             <li><a href="Earring.html">Earrings</a></li>
             <li><a href="Bracelets.html">Bracelets</a></li>
             <li><a href="EssentialOils.html">Oil & Accessories</a></li>
-            <li><a href="Cart.html">🛒</a></li>
+            <li><a href="shopping_cart.html">🛒 <span id="cartCount">0</span></a></li>
             <li><a href="/auth/google">Login</a></li>
             <li class="search-container">
                 <input type="text" id="searchInput" placeholder="Search products...">
@@ -35,78 +35,15 @@
         <p id="message"></p>
     </section>
     
-
+    <div id="toast" class="toast">Added to cart</div>
+    
     <footer>
         <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
     </footer>
 
-    <script>
-    const params = new URLSearchParams(window.location.search);
-    const keyword = params.get("q") || "";
-
-    const resultsTitle = document.getElementById("resultsTitle");
-    const resultsDiv = document.getElementById("results");
-    const message = document.getElementById("message");
-    const searchInput = document.getElementById("searchInput");
-
-    resultsTitle.textContent = `Search Results for "${keyword}"`;
-    searchInput.value = keyword;
-
-    function renderResults(products) {
-        resultsDiv.innerHTML = "";
-        message.textContent = "";
-
-        if (!products || products.length === 0) {
-            message.textContent = "No products found.";
-            return;
-        }
-
-        products.forEach(product => {
-            const card = document.createElement("div");
-            card.className = "product-card";
-
-            const price = Number(product.price) || 0;
-            const imagePath = product.image_url ? `/${product.image_url}` : "";
-
-                console.log("image_url from DB:", product.image_url);
-                console.log("final image path:", imagePath);
-
-             card.innerHTML = `
-                <img src="${imagePath}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p class="product-description">
-                    Item Detail: ${product.description}
-                </p>
-                <p class="price">$${price.toFixed(2)}</p>
-                <button class="btn">Add to Cart</button>
-            `;
-
-            resultsDiv.appendChild(card);
-        });
-    }
-
-    if (keyword.trim() !== "") {
-        fetch(`/search?q=${encodeURIComponent(keyword)}`)
-            .then(response => response.json())
-            .then(data => {
-                renderResults(data);
-            })
-            .catch(error => {
-                console.error("Search fetch error:", error);
-                message.textContent = "Error loading search results.";
-            });
-    } else {
-        message.textContent = "Please enter a search keyword.";
-    }
-
-    searchInput.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-            const newKeyword = searchInput.value.trim();
-            if (!newKeyword) return;
-            window.location.href = `search-result.html?q=${encodeURIComponent(newKeyword)}`;
-        }
-    });
-    </script>
+    
+<script src="shopping_cart.js"></script>
+<script src="search_result.js"></script>   
 
 </body>
 </html>

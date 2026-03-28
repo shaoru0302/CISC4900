@@ -1,3 +1,9 @@
+/**
+ * NOTE:
+ * This server is mainly for authentication and API routing.
+ * Cart and order-related logic are handled on the frontend for simplicity.
+ */
+
 require("dotenv").config();
 const express = require("express");
 const session = require("express-session");

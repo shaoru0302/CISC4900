@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
     <meta charset="UTF-8">
-    <title>BeautyNest</title>
+    <title>Shopping Cart - BeautyNest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="project_css.css">
 </head>
@@ -20,30 +20,36 @@
             <li><a href="Earring.html">Earrings</a></li>
             <li><a href="Bracelets.html">Bracelets</a></li>
             <li><a href="EssentialOils.html">Oil & Accessories</a></li>
-            <li><a href="shopping_cart.html"> 🛒</a></li>
+            <li><a href="shopping_cart.html">🛒 <span id="cartCount">0</span></a></li>
             <li><a href="/auth/google">Login</a></li>
             <li class="search-container">
-               <input type="text" id="searchInput" placeholder="Search products...">
+                <input type="text" id="searchInput" placeholder="Search products...">
             </li>
         </ul>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <p>
-                Our handmade creations are designed to inspire calm.
-            </p>
-            <button>Shop Now</button>
-        </div>
+    <section class="products">
+        <h2>Your Shopping Cart</h2>
+        <a href="index.html">Continue Shopping</a>
+        <br><br>
+
+        <div id="cartItems"></div>
+
+        <h3>Total: $<span id="cartTotal">0.00</span></h3>
+
+        <button id="checkoutBtn" class="btn cart-action-btn">Proceed to Checkout</button>
+        <button id="clearCartBtn" class="btn cart-action-btn">Clear Cart</button>
     </section>
 
-    <footer> <!--  Add Footer-->
+    <div id="toast" class="toast">Added to cart</div>           
+
+    <footer>
         <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
     </footer>
 
-
     <script src="shopping_cart.js"></script>
+    <script src="shopping_cart_page.js"></script>
     <script src="search.js"></script>
-
+    
 </body>
 </html>
