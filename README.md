@@ -64,6 +64,11 @@ Additional integrations include:
 * Google OAuth authentication
 * Stripe checkout workflow (planned)
 
+System architecture detailed overview documentation are avaliable in:
+```
+docs/architecture.md
+```
+
 System architecture and workflow diagrams are available in:
 
 ```
