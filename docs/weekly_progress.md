@@ -1,7 +1,7 @@
 # Weekly Progress Log
 
 
-Last Updated: Mar 8, 2026
+Last Updated: Mar 30, 2026
 
 
 ---
@@ -201,3 +201,109 @@ Last Updated: Mar 8, 2026
 
 - continue to write test cases for authentication and search functionality
 
+  
+---
+
+
+## Week 7 (Mar 9 – Mar 15)
+
+
+### Completed
+
+- Continued refining keyword-based search functionality
+  
+- Improved backend search route and database query accuracy
+  
+- Updated product data structure and database schema
+  
+- Fixed issues related to image paths and product data display
+  
+- Integrated search results more smoothly with the frontend UI
+
+
+### In Progress
+
+- Expanding product database with more items and details
+  
+- Organizing product categories and structure
+  
+- Preparing for cart system design
+
+
+### Next Steps
+
+- Finalize product database population
+
+- Begin cart system design and workflow planning
+
+- Improve frontend display for product catalog
+
+
+---
+
+
+## Week 8 (Mar 16 – Mar 22)
+
+
+### Completed
+
+- Designed cart system flow and low-fidelity prototype
+
+- Implemented initial cart functionality (add/remove items)
+
+- Developed basic cart data structure and logic
+
+- Integrated cart interaction with frontend UI
+
+
+### In Progress
+
+- Enhancing cart functionality (quantity updates, UI synchronization)
+
+- Debugging database-related issues and fixing data inconsistencies
+
+- Improving integration between the cart and product catalog
+
+
+### Next Steps
+
+- Continue developing cart features and refining logic
+
+- Implement order creation functionality
+
+- user interaction and feedback (e.g., toast notifications)
+
+
+---
+
+
+## Week 9 (Mar 23 – Mar 29)
+
+
+### Completed
+
+- Continued implementing and refining cart functionality
+
+- Improved cart logic and UI synchronization
+
+- Tested and debugged cart behavior to ensure correctness
+
+- Designed and completed project presentation slides
+
+- Finalized full project draft and submitted
+
+
+### In Progress
+
+- Minor bug fixes and system polishing
+
+- Preparing for next phase of development (orders & checkout)
+
+
+### Next Steps
+
+- Implement order processing and checkout system
+
+- Expand test coverage for cart and authentication
+
+- Optimize system performance and user experience
