@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Detail</title>
+        <style>
+            .product-detail{
+                display: flex;
+                gap: 100px;
+                align-items: flex-start;
+            }
+
+            #product-image{
+                width: 550px;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="product-detail">
+            <img id = "product-image" src="" alt="product image"> 
+
+            <div>
+                <h2 id = "product-name"></h2>
+                <p id = "product-description"></p>
+                <p id = "product-price"></p>
+                <p id = "product-stock"></p>
+            </div>
+        
+            <div class="product-actions">
+                <div class="quantity-box">
+                    <button id="decrease-btn" type="button">-</button>
+                    <span id="quantity-value">1</span>
+                    <button id="increase-btn" type="button">+</button>
+                </div>
+
+                <button id="add-to-cart-btn" type="button">Add to Cart</button>
+            </div>
+        </div>
+        
+        <script src="shopping_cart.js"></script>
+        <script src="detailed_page.js"></script>
+    </body>
+</html>

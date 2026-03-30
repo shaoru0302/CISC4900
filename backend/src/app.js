@@ -12,6 +12,7 @@ require("./config/passport");
 
 const authRoutes = require("./routes/auth");
 const requireAuth = require("./middleware/requireAuth");
+const productRoutes = require("./routes/products");
 const path = require("path");
 const db = require("./config/db");   // connect to database
 
@@ -103,7 +104,7 @@ app.get("/search", (req, res) => {
     res.json(results);
   });
 });
-
+app.use("/api/products", productRoutes);
 const PORT = process.env.PORT || 4900;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
