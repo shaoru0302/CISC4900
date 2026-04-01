@@ -167,6 +167,6 @@ The `products` table includes a `category` field for catalog grouping:
 - necklace
 - earrings
 - bracelet
-- press_on_nails
+- oil & Accessories
 
 
