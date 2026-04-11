@@ -450,6 +450,131 @@ footer {
     border-radius: 10px;
 }
 
+/* Order history page layout */
+.order-history-page {
+    padding: 40px 20px 60px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Center content and limit width */
+.order-history-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto; 
+}
+
+/* Page main title style */
+.order-history-title {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #5c4b43;
+}
+
+/* Subtitle under title */
+.order-history-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    color: #6b5b53;
+}
+
+/* Each order card container */
+.order-card {
+    background-color: #f8f3ea;
+    border: 1px solid #d8cfc2;
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Order info text (ID, date, status, total) */
+.order-header p {
+    margin: 8px 0;
+    font-size: 1.05rem;
+    color: #5c4b43;
+}
+
+/* Container for all items inside one order */
+.order-items-list {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #d8cfc2;
+}
+
+/* "Items" section title */
+.order-items-list h3 {
+    margin-bottom: 15px;
+    color: #5c4b43;
+}
+
+/* Individual product inside an order */
+.order-product {
+    background-color: #fffaf2;
+    border: 1px solid #e2d8ca;
+    border-radius: 10px;
+    padding: 15px 18px;
+    margin-bottom: 15px;
+}
+
+/* Text inside each product block */
+.order-product p {
+    margin: 6px 0;
+    color: #5c4b43;
+}
+
+/* Order header in grid layout */
+.order-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Each order info block */
+.order-info-box {
+    background-color: #fffaf2;
+    border: 1px solid #e2d8ca;
+    border-radius: 10px;
+    padding: 12px 15px;
+}
+
+/* Small label text */
+.order-info-box .label {
+    display: block;
+    font-size: 0.9rem;
+    color: #8a776d;
+    margin-bottom: 5px;
+}
+
+/* Main value text */
+.order-info-box .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #5c4b43;
+}
+
+/* Highlight product name */
+.product-name {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #5c4b43;
+}
+
+/* Hover effect for order card (slight lift) */
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Add spacing between each product item */
+.order-product {
+    margin-bottom: 18px;
+}
+
 /* Responsive layout */
 @media (max-width: 992px) {
     #cartItems.multi-item {

@@ -12,8 +12,24 @@ fetch(`/api/products/${productId}`)
         document.getElementById("product-name").textContent = data.name;
         document.getElementById("product-description").textContent = data.description;
         document.getElementById("product-price").textContent = "$" + data.price;
-        document.getElementById("product-stock").textContent = "Stock: " + data.stock;
+        
+        const stockElement = document.getElementById("product-stock");
+
+        if (data.stock === 0) {
+            stockElement.textContent = "Out of Stock";
+            stockElement.style.color = "red";
+        } else if (data.stock <= 15) {
+            stockElement.textContent = `Only ${data.stock} left in stock`;
+            stockElement.style.color = "red";
+        } else {
+            stockElement.textContent = "In Stock";
+            stockElement.style.color = "green";
+        }
+
         document.getElementById("product-image").src = data.image_url;
+        document.getElementById("product-how-to-use").textContent = data.how_to_use || "";
+        document.getElementById("product-details").innerHTML =
+            (data.product_details || "").split(";").map(item => item.trim()).join("<br>");
 
         //quantity botton
         let quantity = 1;

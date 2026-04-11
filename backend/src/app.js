@@ -5,6 +5,8 @@
  */
 
 require("dotenv").config();
+console.log("APP FILE:", __filename);
+
 const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
@@ -13,6 +15,7 @@ require("./config/passport");
 const authRoutes = require("./routes/auth");
 const requireAuth = require("./middleware/requireAuth");
 const productRoutes = require("./routes/products");
+const orderRoutes = require("./routes/orders");
 const path = require("path");
 const db = require("./config/db");   // connect to database
 
@@ -20,7 +23,6 @@ const app = express();
 const FRONTEND_DIR = path.join(__dirname, "../../frontend");
 
 app.use(express.static(FRONTEND_DIR));
-
 
 
 // session
@@ -49,11 +51,32 @@ app.get("/api/me", (req, res) => {
     return res.json({ loggedIn: false });
   }
 
+  const email = req.user.email;
+
+  const sql = "SELECT id FROM users WHERE email = ?";
+
+  db.query(sql, [email], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "DB error" });
+    }
+
+    if (results.length === 0) {
+      return res.json({
+        loggedIn: true,
+        id: null,
+        email,
+      });
+    }
+
   res.json({
     loggedIn: true,
+    //id: req.user.id, 
+    id: results[0].id,
     displayName: req.user.displayName,
     role: req.user.role,
     email: req.user.email,
+    });
   });
 });
 
@@ -104,8 +127,19 @@ app.get("/search", (req, res) => {
     res.json(results);
   });
 });
+
+//product routes
 app.use("/api/products", productRoutes);
+
+//orders routes
+app.use("/api/orders",orderRoutes);
+
+app.get("/api/test-direct", (req, res) => {
+  res.send("direct route works");
+});
+
 const PORT = process.env.PORT || 4900;
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
