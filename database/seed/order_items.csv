@@ -1,0 +1,14 @@
+id,order_id,product_id,quantity,unit_price_snapshot,name_snapshot
+1,1,434,1,31.99,Rose Essential Oil Bracelet
+2,1,407,1,125.00,Lavender Essential Oil Necklace
+3,2,432,4,38.00,Jasmine Essential Oil Bracelet
+4,2,441,1,12.99,Peony Essential Oil
+5,3,430,1,39.99,Star Essential Oil Bracelet
+6,4,434,4,31.99,Rose Essential Oil Bracelet
+7,5,407,1,125.00,Lavender Essential Oil Necklace
+8,6,412,1,38.00,Star Essential Oil Earrings
+9,7,409,2,125.00,Peony Essential Oil Necklace
+10,8,432,1,38.00,Jasmine Essential Oil Bracelet
+11,9,406,3,128.00,Star Essential Oil Necklace
+12,9,447,3,6.99,Replacement Lava Stones
+13,10,445,2,12.99,Daisy Essential Oil
