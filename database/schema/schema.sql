@@ -37,6 +37,12 @@ CREATE TABLE orders(
     user_id INT NOT NULL,
     total_amount DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     status ENUM('pending','paid','shipped','cancelled') NOT NULL DEFAULT 'pending',
+    
+    stripe_session_id VARCHAR(255),
+	stripe_payment_intent_id VARCHAR(255),
+	payment_status VARCHAR(50) DEFAULT 'unpaid',
+	paid_at DATETIME NULL,
+
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     
