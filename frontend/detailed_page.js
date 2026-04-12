@@ -1,4 +1,3 @@
-
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
@@ -9,10 +8,11 @@ fetch(`/api/products/${productId}`)
     .then(data => {
         console.log(data);
 
+        // Product Info
         document.getElementById("product-name").textContent = data.name;
         document.getElementById("product-description").textContent = data.description;
         document.getElementById("product-price").textContent = "$" + data.price;
-        
+
         const stockElement = document.getElementById("product-stock");
 
         if (data.stock === 0) {
@@ -28,32 +28,38 @@ fetch(`/api/products/${productId}`)
 
         document.getElementById("product-image").src = data.image_url;
         document.getElementById("product-how-to-use").textContent = data.how_to_use || "";
+
         document.getElementById("product-details").innerHTML =
-            (data.product_details || "").split(";").map(item => item.trim()).join("<br>");
+            (data.product_details || "")
+                .split(";")
+                .map(item => item.trim())
+                .join("<br>");
 
-        //quantity botton
-        let quantity = 1;
-
+        // Quantity Buttons
         const quantityValue = document.getElementById("quantity-value");
         const decreaseBtn = document.getElementById("decrease-btn");
         const increaseBtn = document.getElementById("increase-btn");
         const addToCartBtn = document.getElementById("add-to-cart-btn");
 
+        // Plus button
+        increaseBtn.addEventListener("click", () => {
+            let value = Number(quantityValue.value) || 1;
+            quantityValue.value = value + 1;
+        });
+
+        // Minus button
         decreaseBtn.addEventListener("click", () => {
-            if (quantity > 1) {
-                quantity--;
-                quantityValue.textContent = quantity;
+            let value = Number(quantityValue.value) || 1;
+            if (value > 1) {
+                quantityValue.value = value - 1;
             }
         });
 
-        increaseBtn.addEventListener("click", () => {
-            quantity++;
-            quantityValue.textContent = quantity;
-        });
-
-        //add to cart botton
+        // Add to Cart
         addToCartBtn.addEventListener("click", () => {
             console.log("detail add to cart clicked");
+
+            const quantity = Number(quantityValue.value) || 1;
 
             const product = {
                 id: data.id,
@@ -71,8 +77,8 @@ fetch(`/api/products/${productId}`)
 
             console.log("addToCart finished");
         });
-})
-.catch(error => {
-    console.error("Fetch error:", error);
- });
 
+    })
+    .catch(error => {
+        console.error("Fetch error:", error);
+    });
