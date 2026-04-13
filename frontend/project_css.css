@@ -587,3 +587,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+.order-history-title {
+  font-size: 32px;
+}

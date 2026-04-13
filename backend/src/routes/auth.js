@@ -16,7 +16,7 @@ router.get(
     if (req.user.role === "admin") {
       return res.redirect("/admin");
     }
-    return res.redirect("/user");
+    return res.redirect("/");
   }
 );
 

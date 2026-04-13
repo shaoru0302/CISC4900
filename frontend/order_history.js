@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("order-history-container");
 
+  if (!container) return;
+  
   fetch("/api/me")
     .then((res) => res.json())
     .then((user) => {

@@ -4,35 +4,73 @@
   <meta charset="UTF-8" />
   <title>User Dashboard - BeautyNest</title>
   <link rel="stylesheet" href="project_css.css">
+  <link rel="stylesheet" href="admin.css">
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
-
-    .container {
-      width: 100%;
+    .user-hero {
+      margin-top: 40px;
+      margin-bottom: 30px;
       text-align: center;
-      padding-top: 80px;
     }
 
-    nav a {
-      margin: 0 10px;
+    .user-hero h2 {
+      margin-bottom: 12px;
+    }
+
+    .user-hero p {
+      font-size: 18px;
+      color: #6a543f;
+      margin: 0;
+    }
+
+    .user-card-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 35px;
+    }
+
+    .user-card {
+      background: #f7f3ed;
+      border-radius: 10px;
+      padding: 28px 24px;
+      width: 340px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #ddd2c2;
+      text-align: center;
+    }
+
+    .user-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 28px;
+      color: #5a4634;
+    }
+
+    .user-card p {
+      margin: 0 0 24px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #6a543f;
+    }
+
+    .dashboard-link-btn {
+      display: inline-block;
+      padding: 12px 22px;
+      background: #c8a85a;
+      color: white;
       text-decoration: none;
-      color: #333;
+      border-radius: 6px;
       font-weight: bold;
+      font-size: 16px;
     }
 
-    nav {
-      margin-top: 20px;
+    .dashboard-link-btn:hover {
+      background: #b89a4d;
     }
   </style>
 </head>
 
 <body>
-
   <div class="container">
     <h1>BeautyNest</h1>
 
@@ -41,26 +79,25 @@
       <a href="/logout">Logout</a>
     </nav>
 
-    <h2>User Page</h2>
-    <p id="welcomeText">Loading...</p>
+    <section class="user-hero">
+      <h2>User Page</h2>
+      <p id="welcomeText">Loading...</p>
+    </section>
+
+    <div class="user-card-wrap">
+      <div class="user-card">
+        <h3>Order History</h3>
+        <p>View your past orders and order details.</p>
+        <a href="/order_history" class="dashboard-link-btn">View Orders</a>
+      </div>
+    </div>
   </div>
 
-  <script>
-    fetch("/api/me")
-      .then(res => res.json())
-      .then(data => {
-        if (!data.loggedIn) {
-          window.location.href = "/";
-          return;
-        }
+  <script src="auth_user.js"></script>
 
-        document.getElementById("welcomeText").innerText =
-          "Welcome " + data.displayName;
-      })
-      .catch(() => {
-        window.location.href = "/";
-      });
-  </script>
+  <footer>
+    <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
+  </footer>
 
 </body>
 </html>

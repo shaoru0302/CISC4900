@@ -43,6 +43,11 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(FRONTEND_DIR, "index.html"));
 });
 
+// routes to order history page
+app.get("/order_history", requireAuth("user"), (req, res) => {
+  res.sendFile(path.join(FRONTEND_DIR, "order_history.html"));
+});
+
 // auth routes
 app.use("/auth", authRoutes);
 
@@ -56,7 +61,6 @@ app.get("/api/me", (req, res) => {
   }
 
   const email = req.user.email;
-
   const sql = "SELECT id FROM users WHERE email = ?";
 
   db.query(sql, [email], (err, results) => {
@@ -65,21 +69,12 @@ app.get("/api/me", (req, res) => {
       return res.status(500).json({ error: "DB error" });
     }
 
-    if (results.length === 0) {
-      return res.json({
-        loggedIn: true,
-        id: null,
-        email,
-      });
-    }
-
-  res.json({
-    loggedIn: true,
-    //id: req.user.id, 
-    id: results[0].id,
-    displayName: req.user.displayName,
-    role: req.user.role,
-    email: req.user.email,
+    res.json({
+      loggedIn: true,
+      id: results.length > 0 ? results[0].id : req.user.id,
+      displayName: req.user.displayName,
+      role: req.user.role,
+      email: req.user.email,
     });
   });
 });
