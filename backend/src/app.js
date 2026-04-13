@@ -13,6 +13,7 @@ const passport = require("passport");
 require("./config/passport");
 
 const authRoutes = require("./routes/auth");
+const adminRoutes = require("./routes/admin");
 const requireAuth = require("./middleware/requireAuth");
 const productRoutes = require("./routes/products");
 const orderRoutes = require("./routes/orders");
@@ -23,7 +24,7 @@ const app = express();
 const FRONTEND_DIR = path.join(__dirname, "../../frontend");
 
 app.use(express.static(FRONTEND_DIR));
-
+app.use(express.json());
 
 // session
 app.use(
@@ -44,6 +45,9 @@ app.get("/", (req, res) => {
 
 // auth routes
 app.use("/auth", authRoutes);
+
+// admin api routes
+app.use("/api/admin", adminRoutes);
 
 // get user info
 app.get("/api/me", (req, res) => {

@@ -4,40 +4,18 @@
   <meta charset="UTF-8" />
   <title>Admin Dashboard - BeautyNest</title>
   <link rel="stylesheet" href="project_css.css">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
-
-    .container {
-      width: 100%;
-      text-align: center;
-      padding-top: 80px;
-    }
-
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-
-    nav {
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
-
   <div class="container">
     <h1>BeautyNest</h1>
 
     <nav>
       <a href="/">Home</a>
+      <a href="/admin.html">Dashboard</a>
+      <a href="/admin_products.html">Products</a>
+      <a href="/admin_orders.html">Orders</a>
       <a href="/logout">Logout</a>
     </nav>
 
@@ -45,27 +23,39 @@
     <p id="welcomeText">Loading...</p>
 
     <section>
-      <h3>Admin Controls</h3>
-      <p>Manage Products | View Orders | Update Inventory</p>
+      <h3>Dashboard Summary</h3>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Total Products</h3>
+          <p id="totalProducts">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Total Orders</h3>
+          <p id="totalOrders">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Pending Orders</h3>
+          <p id="pendingOrders">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Low Stock Products</h3>
+          <p id="lowStockProducts">0</p>
+        </div>
+      </div>
     </section>
   </div>
 
-  <script>
-    fetch("/api/me")
-      .then(res => res.json())
-      .then(data => {
-        if (!data.loggedIn || data.role !== "admin") {
-          window.location.href = "/";
-          return;
-        }
+  <footer>
+    <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
+  </footer>
+  
 
-        document.getElementById("welcomeText").innerText =
-          "Welcome " + data.displayName;
-      })
-      .catch(() => {
-        window.location.href = "/";
-      });
-  </script>
+  <script src="admin_dashboard.js"></script>
 
+  
 </body>
 </html>

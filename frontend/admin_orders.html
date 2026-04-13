@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Orders - BeautyNest</title>
+  <link rel="stylesheet" href="project_css.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="container">
+    <h1>BeautyNest</h1>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/admin.html">Dashboard</a>
+      <a href="/admin_products.html">Products</a>
+      <a href="/admin_orders.html">Orders</a>
+      <a href="/logout">Logout</a>
+    </nav>
+
+    <h2>Order Management</h2>
+    <p>View customer orders and update their status.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>User ID</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody id="orderTableBody"></tbody>
+    </table>
+  </div>
+
+  <footer> <!--  Add Footer-->
+        <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
+    </footer>
+
+  <script src="admin_orders.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #F2EBDD;
+  color: #5a4634;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 40px;
+}
+
+nav {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background: #E6DDCF; 
+  padding: 10px 0;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #b89a4d;
+}
+
+h1,
+h2,
+h3 {
+  color: #5a4634;
+  letter-spacing: 1px;
+}
+
+#welcomeText {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #6a543f;
+}
+
+form {
+  background: #f7f3ed;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 auto 24px;
+  display: grid;
+  gap: 10px;
+  max-width: 600px;
+  border: 1px solid #ddd2c2;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  font-size: 14px;
+}
+
+button {
+  background: #c8a85a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #b89a4d;
+}
+
+table {
+  width: 90%;
+  margin: 60px auto 0;
+  border-collapse: collapse;
+  background: #f5efe6;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #e0d7ca;
+  color: #5a4634;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+tr:hover {
+  background: #f3ebdf;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding-bottom: 40px;
+}
+
+.card {
+  background: #f7f3ed;
+  border-radius: 10px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ddd2c2;
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #5a4634;
+  text-align: center;
+}
+
+.card p {
+  margin: 10px 0 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #b89a4d;
+  text-align: center;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 5px;
+    background-color: #E6DDCF;
+    font-size: 14px;
+}
