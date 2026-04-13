@@ -16,10 +16,10 @@ The system demonstrates frontend, backend, and database integration within a sem
   - UI Design, Product Listing Interface, User Interaction, Frontend Layout, Styling, and Page Integration
   
 - **Zhihui Gan - Database design & Backend**
-  - Database Design, Product APIs, Product Detail Page, Order Data Storage, Payment Integration
+  - Database Design, Product APIs Development, Order Data Management, Product Detail Page & Order History Page(full-stack implementation), and Payment Integration
   
 - **Shaoru Wu-Zhu - Backend Development**
-  - Authentication, Search Functionality, Cart Logic, Order Processing, Admin Features
+  - Authentication, Search Functionality & Shopping Cart Logic & Order Processing & Admin Features(full-stack implementation)
   - Diagram design, Documentation, Repository Management & Project Delivery
 
 
@@ -98,8 +98,8 @@ The project is currently under active development.
 
 ### Completed:
 
-* Google OAuth authentication prototype
-* Product keyword search feature
+* Google OAuth authentication (fully integrated with user session management)
+* Product keyword search feature (frontend + backend integration)
 * Initial database schema implementation
 * System architecture diagrams
 
