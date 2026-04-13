@@ -170,3 +170,15 @@ The `products` table includes a `category` field for catalog grouping:
 - oil & Accessories
 
 
+---
+
+
+## Timeline Adjustment
+
+The original project timeline planned to implement payment integration during Weeks 10–11.
+
+However, due to the complexity of order processing and admin feature development, the payment feature has been rescheduled to Week 12 to ensure system stability and proper integration.
+
+This adjustment reflects a prioritization of core functionality before integrating external payment services.
+
+
