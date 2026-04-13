@@ -1,7 +1,7 @@
 # Weekly Progress Log
 
 
-Last Updated: Mar 30, 2026
+Last Updated: Apr 13, 2026
 
 
 ---
@@ -307,3 +307,73 @@ Last Updated: Mar 30, 2026
 - Expand test coverage for cart and authentication
 
 - Optimize system performance and user experience
+
+
+---
+
+
+## Week 10 (Mar 30 – Apr 5)
+
+### Completed
+
+- Implemented order processing workflow (cart → order creation → database storage)
+  
+- Developed backend API for retrieving user order history
+  
+- Built Order History page (frontend & backend integration)
+
+- Fixed routing issues related to /order_history
+  
+- Integrated user authentication with order access control (user-only access)
+
+### In Progress
+
+- Improving Order History UI and layout
+  
+- Testing order data consistency and edge cases
+  
+- Refining user navigation (login → homepage → user page)
+
+### Next Steps
+
+- Implement admin order management features
+  
+- Improve UI consistency across user pages
+
+- Begin admin dashboard development
+
+
+---
+
+
+## Week 11 (Apr 6 – Apr 12)
+
+### Completed
+
+- Implemented admin dashboard for product and order management
+
+- Added role-based access control for admin routes
+
+- Developed admin order view and status management
+
+- Unified authentication UI (Login → Hi, Username across pages)
+
+- Refactored navbar to dynamically reflect login state
+
+- Improved Order History page design and data presentation
+
+### In Progress
+
+- Enhancing admin dashboard UI and usability
+
+- Expanding product database
+
+- Debugging remaining UI inconsistencies
+
+### Next Steps
+
+- Finalize checkout workflow (payment integration + validation)
+
+- Conduct end-to-end system testing
+
+- Prepare final presentation and demo
