@@ -125,3 +125,43 @@ function showToast(message) {
 
 // initialize the cartCount when the page loads
 document.addEventListener("DOMContentLoaded", updateCartCount);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const checkoutBtn = document.getElementById("checkoutBtn");
+
+    if (!checkoutBtn) return;
+
+    checkoutBtn.addEventListener("click", async () => {
+        try {
+            const cart = getCart();
+
+            if (!cart || cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            const total = cart.reduce((sum, item) => {
+                return sum + Number(item.price) * Number(item.quantity || 1);
+            }, 0);
+
+            const response = await fetch("/create-checkout-session", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ amount: total })
+            });
+
+            const data = await response.json();
+
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                alert(data.error || "Failed to start checkout.");
+            }
+        } catch (error) {
+            console.error("Checkout error:", error);
+            alert("Something went wrong.");
+        }
+    });
+});

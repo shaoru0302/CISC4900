@@ -8,6 +8,8 @@ require("dotenv").config();
 console.log("APP FILE:", __filename);
 
 const express = require("express");
+const Stripe = require("stripe");
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const session = require("express-session");
 const passport = require("passport");
 require("./config/passport");
@@ -132,6 +134,35 @@ app.use("/api/products", productRoutes);
 
 //orders routes
 app.use("/api/orders",orderRoutes);
+
+app.post("/create-checkout-session", async (req, res) => {
+    try {
+    const { amount } = req.body;
+
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: [
+        {
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: "BeautyNest Order"
+            },
+            unit_amount: Math.round(amount * 100)
+                    },
+                    quantity: 1
+                }
+            ],
+            success_url: `${process.env.BASE_URL}/success.html`,
+            cancel_url: `${process.env.BASE_URL}/cancel.html`
+        });
+
+        res.json({ url: session.url });
+    } catch (error) {
+        console.error("Stripe checkout session error:", error);
+        res.status(500).json({ error: "Failed to create checkout session" });
+    }
+});
 
 app.get("/api/test-direct", (req, res) => {
   res.send("direct route works");

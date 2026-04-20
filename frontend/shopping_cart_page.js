@@ -106,7 +106,7 @@ function renderCart() {
         renderCart();
     });
 
-    // Handle checkout request
+/*    // Handle checkout request
     document.getElementById("checkoutBtn").addEventListener("click", async () => {
         const cart = getCart();
 
@@ -143,7 +143,7 @@ function renderCart() {
             console.error("Checkout error:", error);
             alert(error.message);
         }
-    });
+    });*/
 
     // Initialize cart page on load
     document.addEventListener("DOMContentLoaded", renderCart);
