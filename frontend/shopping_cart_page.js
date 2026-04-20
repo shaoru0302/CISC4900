@@ -22,7 +22,9 @@ function renderCart() {
         cartItemsEl.innerHTML = `
             <div class="empty-cart">Your cart is empty.</div>
          `;
-        totalEl.textContent = "0.00";
+        document.getElementById("cartSubtotal").textContent = "0.00";
+        document.getElementById("cartTax").textContent = "0.00";
+        document.getElementById("cartTotal").textContent = "0.00";
         return;
     }
 
@@ -58,8 +60,17 @@ function renderCart() {
         cartItemsEl.appendChild(div);
     });
 
-    // Update total price
-    totalEl.textContent = getCartTotal().toFixed(2);
+    // Update total price after tax
+    const subTotal = getCartTotal();
+    const taxRate = 0.08875;            // NY tax
+
+    const tax = +(subTotal * taxRate).toFixed(2);
+    const total = +(subTotal + tax).toFixed(2); 
+    
+    // uodate UI display
+    document.getElementById("cartSubtotal").textContent = subTotal.toFixed(2);
+    document.getElementById("cartTax").textContent = tax.toFixed(2);
+    document.getElementById("cartTotal").textContent = total.toFixed(2);
 
     // Handle plus button
     document.querySelectorAll(".qty-btn.plus").forEach(btn => {

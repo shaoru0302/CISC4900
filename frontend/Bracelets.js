@@ -21,6 +21,17 @@ fetch("/api/products?category=bracelet")
         <button class="btn">Add to Cart</button>
       `;
 
+
+      const button = card.querySelector(".btn");
+
+        button.addEventListener("click", () => {
+            addToCart({
+                id: product.id,
+                name: product.name,
+                price: Number(product.price),
+                image_url: product.image_url
+        });
+});
       productGrid.appendChild(card);
     });
   })

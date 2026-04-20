@@ -21,7 +21,7 @@
             <li><a href="Bracelets.html">Bracelets</a></li>
             <li><a href="EssentialOils.html">Oil & Accessories</a></li>
             <li><a href="shopping_cart.html">🛒 <span id="cartCount">0</span></a></li>
-            <li><a href="/auth/google">Login</a></li>
+            <li id="authLink"><a href="/auth/google">Login</a></li>
             <li class="search-container">
                 <input type="text" id="searchInput" placeholder="Search products...">
             </li>
@@ -35,6 +35,8 @@
 
         <div id="cartItems"></div>
 
+        <h3>Subtotal: $<span id="cartSubtotal">0.00</span></h3>
+        <h3>Tax: $<span id="cartTax">0.00</span></h3>
         <h3>Total: $<span id="cartTotal">0.00</span></h3>
 
         <button id="checkoutBtn" class="btn cart-action-btn">Proceed to Checkout</button>
@@ -50,6 +52,7 @@
     <script src="shopping_cart.js"></script>
     <script src="shopping_cart_page.js"></script>
     <script src="search.js"></script>
+    <script src="auth_user.js"></script>
     
 </body>
 </html>
