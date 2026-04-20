@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail - BeautyNest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project_css.css">
+
+    <style>
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-info h3 {
+            margin-top: 24px;
+            margin-bottom: 6px;
+        }
+
+        .product-info p {
+            margin-top: 0;
+        }
+
+        .product-actions {
+            margin-top: 18px;
+            margin-bottom: 40px;
+        }
+
+        .product-actions .quantity-box {
+            margin-bottom: 12px;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .product-detail {
+            display: flex;
+            gap: 100px;
+            align-items: flex-start;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        #product-image {
+            margin-top: 50px;
+            width: 550px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>BeautyNest</h1>
+        <p>Essential Oil Jewelry & Handcrafted Beauty</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Necklace.html">Necklaces</a></li>
+            <li><a href="Earring.html">Earrings</a></li>
+            <li><a href="Bracelets.html">Bracelets</a></li>
+            <li><a href="EssentialOils.html">Oil & Accessories</a></li>
+            <li><a href="shopping_cart.html">🛒 <span id="cartCount">0</span></a></li>
+            <li><a href="/auth/google">Login</a></li>
+            <li class="search-container">
+                <input type="text" id="searchInput" placeholder="Search products...">
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="product-container">
+            <div class="product-detail">
+                <img id="product-image" src="" alt="product image">
+        
+                <div class="product-info">
+                    <h2 id="product-name"></h2>
+                    <p id="product-description"></p>
+                    <p id="product-price"></p>
+                    <p id="product-stock"></p>
+
+                    <div class="product-actions">
+                        <div class="qty-control">
+                            <button id="decrease-btn" class="qty-btn minus">-</button>
+                            <input type="text" id="quantity-value" value="1" class="qty-input">
+                            <button id="increase-btn" class="qty-btn plus">+</button>
+                        </div>
+
+                        <button id="add-to-cart-btn" class="btn">Add to Cart</button>
+                    </div>
+
+                    <h3>How to Use</h3>
+                    <p id="product-how-to-use"></p>
+
+                    <h3>Product Details</h3>
+                    <p id="product-details"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <footer>
+        <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
+    </footer>
+
+    <script src="shopping_cart.js"></script>
+    <script src="detailed_page.js"></script>
+</body>
+</html>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search Results - BeautyNest</title>
+    <title>Order History - BeautyNest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="project_css.css">
-    
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
@@ -16,34 +16,49 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="Necklace.html">Necklaces</a></li>
             <li><a href="Earring.html">Earrings</a></li>
             <li><a href="Bracelets.html">Bracelets</a></li>
             <li><a href="EssentialOils.html">Oil & Accessories</a></li>
             <li><a href="shopping_cart.html">🛒 <span id="cartCount">0</span></a></li>
-            <li><a href="/auth/google">Login</a></li>
+            <li id="authLink"></li>
             <li class="search-container">
                 <input type="text" id="searchInput" placeholder="Search products...">
             </li>
         </ul>
     </nav>
 
-    <section class="products">
-        <h2 id="resultsTitle">Search Results</h2>
-        <div id="results" class="product-grid"></div>
-        <p id="message"></p>
+    <main class="order-history-page">
+    <section class="order-history-section">
+      <h2 class="order-history-title">Order History</h2>
+      <p class="order-history-subtitle">View your past orders and order details.</p>
+
+      <table class="order-history-table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Items</th>
+            </tr>
+        </thead>
+        <tbody id="order-history-container">
+            <tr>
+                <td colspan="5" style="text-align:center;">Loading...</td>
+            </tr>
+        </tbody>
+      </table>
     </section>
-    
-    <div id="toast" class="toast">Added to cart</div>
-    
+    </main>
+
     <footer>
         <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
     </footer>
 
-    
-<script src="shopping_cart.js"></script>
-<script src="search_result.js"></script>   
+    <script src="auth_user.js"></script>
+    <script src="order_history.js"></script>
 
 </body>
 </html>

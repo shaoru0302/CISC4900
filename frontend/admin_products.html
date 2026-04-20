@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Products - BeautyNest</title>
+  <link rel="stylesheet" href="project_css.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="container">
+    <h1>BeautyNest</h1>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/admin.html">Dashboard</a>
+      <a href="/admin_products.html">Products</a>
+      <a href="/admin_orders.html">Orders</a>
+      <a href="/logout">Logout</a>
+    </nav>
+
+    <h2>Product Management</h2>
+    <p>Add, edit, and manage product inventory.</p>
+
+    <form id="productForm">
+      <input type="hidden" id="productId" />
+      <input type="text" id="name" placeholder="Product Name" required />
+      <input type="text" id="description" placeholder="Description" required />
+      <input type="number" step="0.01" id="price" placeholder="Price" required />
+      <input type="text" id="image_url" placeholder="Image URL" required />
+      <input type="number" id="stock" placeholder="Stock" required />
+      <input type="text" id="category" placeholder="Category" required />
+      <button type="submit">Save Product</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody"></tbody>
+    </table>
+  </div>
+
+  <footer> <!--  Add Footer-->
+        <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
+    </footer>
+
+  <script src="admin_products.js"></script>
+
+</body>
+</html>

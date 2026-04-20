@@ -1,4 +1,4 @@
-# Beauty Nest E-commerce Website Project
+# BeautyNest E-commerce Website Project
 
 
 
@@ -10,13 +10,28 @@ The system demonstrates frontend, backend, and database integration within a sem
 ---
 
 
-## Team Members
+## Team Members & Responsibilities
 
-* Jiexian He - Frontend development
-* Zhihui Gan - Database design & Backend support
-* Shaoru Wu-Zhu - Documentation, repository management, coordination
+- **Jiexian He - Frontend development**
+  - UI Design, Product Listing Interface, User Interaction, Frontend Layout, Styling, and Page Integration
+  
+- **Zhihui Gan - Database design & Backend**
+  - Database Design, Product APIs Development, Order Data Management, Product Detail Page & Order History Page(full-stack implementation), and Payment Integration
+  
+- **Shaoru Wu-Zhu - Backend Development**
+  - Authentication, Search Functionality & Shopping Cart Logic & Order Processing & Admin Features(full-stack implementation)
+  - Diagram design, Documentation, Repository Management & Project Delivery
+
+
+### Testing & Debugging
+
+- Conducted collaboratively across all team members
+- Each member tests their own components
+- Integration testing ensures full system functionality
+
 
 ---
+
 
 ## Features (MVP)
 
@@ -49,6 +64,11 @@ Additional integrations include:
 * Google OAuth authentication
 * Stripe checkout workflow (planned)
 
+System architecture detailed overview documentation are avaliable in:
+```
+docs/architecture.md
+```
+
 System architecture and workflow diagrams are available in:
 
 ```
@@ -78,8 +98,8 @@ The project is currently under active development.
 
 ### Completed:
 
-* Google OAuth authentication prototype
-* Product keyword search feature
+* Google OAuth authentication (fully integrated with user session management)
+* Product keyword search feature (frontend + backend integration)
 * Initial database schema implementation
 * System architecture diagrams
 
@@ -131,6 +151,9 @@ Then open a browser and visit `http://localhost:4900` to access the BeautyNest w
 Users can log in using Google OAuth and test features such as product browsing and keyword search.
 
 
+---
+
+
 ## Product seed data
 
 The product seed file is located at:
@@ -144,6 +167,18 @@ The `products` table includes a `category` field for catalog grouping:
 - necklace
 - earrings
 - bracelet
-- press_on_nails
+- oil & Accessories
+
+
+---
+
+
+## Timeline Adjustment
+
+The original project timeline planned to implement payment integration during Weeks 10–11.
+
+However, due to the complexity of order processing and admin feature development, the payment feature has been rescheduled to Week 12 to ensure system stability and proper integration.
+
+This adjustment reflects a prioritization of core functionality before integrating external payment services.
 
 

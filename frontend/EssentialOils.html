@@ -21,7 +21,7 @@
         <li><a href="Earring.html">Earrings</a></li>
         <li><a href="Bracelets.html">Bracelets</a></li>
         <li><a class="active" href="EssentialOils.html">Oil & Accessories</a></li>
-        <li><a href="Cart.html">🛒</a></li>
+        <li><a href="shopping_cart.html">🛒</a></li>
         <li><a href="Login.html">Login</a></li>
         <li class="search-container">
                <input type="text" id="searchInput" placeholder="Search products...">
@@ -32,8 +32,9 @@
 <main class="container">
    <h2 class="page-title">Oil & Accessories</h2> 
 
-    <section class="product-grid">
+    <section class="product-grid" id="product-grid">
 
+        <!--
         <div class="product-card">
             <img src="images/essential oil/Es1.jpg" alt="Lotus Essential Oil">
             <h3>Lotus Essential Oil</h3>
@@ -145,15 +146,20 @@
             <p class="price">$4.99</p>
             <button class="btn">Add to Cart</button>
         </div>
-
+        -->
     </section>
 </main>
+
+<div id="toast" class="toast">Added to cart</div>
 
 <footer>
     <p>© 2026 BeautyNest | Designed for CISC 4900 Project</p>
 </footer>
 
+<script src="shopping_cart.js"></script>
+<script src="catalog_cart.js"></script>
 <script src="search.js"></script>
+<script src="EssentialOils.js"></script>
 
 </body>
 </html>

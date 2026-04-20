@@ -1,7 +1,7 @@
 # Weekly Progress Log
 
 
-Last Updated: Mar 8, 2026
+Last Updated: Apr 13, 2026
 
 
 ---
@@ -201,3 +201,179 @@ Last Updated: Mar 8, 2026
 
 - continue to write test cases for authentication and search functionality
 
+  
+---
+
+
+## Week 7 (Mar 9 – Mar 15)
+
+
+### Completed
+
+- Continued refining keyword-based search functionality
+  
+- Improved backend search route and database query accuracy
+  
+- Updated product data structure and database schema
+  
+- Fixed issues related to image paths and product data display
+  
+- Integrated search results more smoothly with the frontend UI
+
+
+### In Progress
+
+- Expanding product database with more items and details
+  
+- Organizing product categories and structure
+  
+- Preparing for cart system design
+
+
+### Next Steps
+
+- Finalize product database population
+
+- Begin cart system design and workflow planning
+
+- Improve frontend display for product catalog
+
+
+---
+
+
+## Week 8 (Mar 16 – Mar 22)
+
+
+### Completed
+
+- Designed cart system flow and low-fidelity prototype
+
+- Implemented initial cart functionality (add/remove items)
+
+- Developed basic cart data structure and logic
+
+- Integrated cart interaction with frontend UI
+
+
+### In Progress
+
+- Enhancing cart functionality (quantity updates, UI synchronization)
+
+- Debugging database-related issues and fixing data inconsistencies
+
+- Improving integration between the cart and product catalog
+
+
+### Next Steps
+
+- Continue developing cart features and refining logic
+
+- Implement order creation functionality
+
+- user interaction and feedback (e.g., toast notifications)
+
+
+---
+
+
+## Week 9 (Mar 23 – Mar 29)
+
+
+### Completed
+
+- Continued implementing and refining cart functionality
+
+- Improved cart logic and UI synchronization
+
+- Tested and debugged cart behavior to ensure correctness
+
+- Designed and completed project presentation slides
+
+- Finalized full project draft and submitted
+
+
+### In Progress
+
+- Minor bug fixes and system polishing
+
+- Preparing for next phase of development (orders & checkout)
+
+
+### Next Steps
+
+- Implement order processing and checkout system
+
+- Expand test coverage for cart and authentication
+
+- Optimize system performance and user experience
+
+
+---
+
+
+## Week 10 (Mar 30 – Apr 5)
+
+### Completed
+
+- Implemented order processing workflow (cart → order creation → database storage)
+  
+- Developed backend API for retrieving user order history
+  
+- Built Order History page (frontend & backend integration)
+
+- Fixed routing issues related to /order_history
+  
+- Integrated user authentication with order access control (user-only access)
+
+### In Progress
+
+- Improving Order History UI and layout
+  
+- Testing order data consistency and edge cases
+  
+- Refining user navigation (login → homepage → user page)
+
+### Next Steps
+
+- Implement admin order management features
+  
+- Improve UI consistency across user pages
+
+- Begin admin dashboard development
+
+
+---
+
+
+## Week 11 (Apr 6 – Apr 12)
+
+### Completed
+
+- Implemented admin dashboard for product and order management
+
+- Added role-based access control for admin routes
+
+- Developed admin order view and status management
+
+- Unified authentication UI (Login → Hi, Username across pages)
+
+- Refactored navbar to dynamically reflect login state
+
+- Improved Order History page design and data presentation
+
+### In Progress
+
+- Enhancing admin dashboard UI and usability
+
+- Expanding product database
+
+- Debugging remaining UI inconsistencies
+
+### Next Steps
+
+- Finalize checkout workflow (payment integration + validation)
+
+- Conduct end-to-end system testing
+
+- Prepare final presentation and demo
