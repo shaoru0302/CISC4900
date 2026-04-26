@@ -9,10 +9,16 @@ console.log("APP FILE:", __filename);
 
 const express = require("express");
 const Stripe = require("stripe");
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const session = require("express-session");
 const passport = require("passport");
 require("./config/passport");
+
+let stripe = null;
+if (process.env.STRIPE_SECRET_KEY) {
+  stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+} else {
+  console.warn("STRIPE_SECRET_KEY is missing. Stripe checkout is disabled.");
+}
 
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
@@ -129,40 +135,143 @@ app.get("/search", (req, res) => {
   });
 });
 
-//product routes
+// product routes
 app.use("/api/products", productRoutes);
 
-//orders routes
+// orders routes
 app.use("/api/orders",orderRoutes);
 
-app.post("/create-checkout-session", async (req, res) => {
+// checkout routes, use Stripe if configured, otherwise create order directly
+app.post("/api/checkout", requireAuth("user"), async (req, res) => {
     try {
-    const { amount } = req.body;
+    const { items, total } = req.body;
 
-    const session = await stripe.checkout.sessions.create({
-      mode: "payment",
-      line_items: [
-        {
+    console.log("req.user =", req.user);
+    console.log("req.user.email =", req.user.email);
+
+    if (!items || items.length === 0) {
+      return res.status(400).json({ error: "Cart is empty." });
+    }
+
+    if (!total || isNaN(total)) {
+      return res.status(400).json({ error: "Invalid total amount." });
+    }
+
+    const email = req.user.email?.trim().toLowerCase();
+    const findUserSql = "SELECT id FROM users WHERE email = ?";
+
+    db.query(findUserSql, [email], (userErr, userResults) => {
+      if (userErr) {
+        console.error("User lookup error:", userErr);
+        return res.status(500).json({ error: "Failed to find user." });
+    }
+
+      if (userResults.length === 0) {
+      return res.status(404).json({ error: "User not found in database." });
+    }
+
+    const userId = userResults[0].id;
+
+  // create order once processing checkout
+    const orderSql = `
+      INSERT INTO orders (user_id, total_amount, status, payment_status)
+      VALUES (?, ?, 'pending', 'unpaid')
+    `;
+
+    db.query(orderSql, [userId, total], async (orderErr, orderResult) => {
+      if (orderErr) {
+        console.error("Order insert error:", orderErr);
+        return res.status(500).json({ error: "Failed to create order." });
+      }
+
+      const orderId = orderResult.insertId;
+
+  // create order_items
+      const values = items.map(item => [
+        orderId,
+        item.id,
+        item.quantity,
+        Number(item.price),
+        item.name
+      ]);
+
+      const orderItemsSql = `
+        INSERT INTO order_items
+        (order_id, product_id, quantity, unit_price_snapshot, name_snapshot)
+        VALUES ?
+      `;
+
+      db.query(orderItemsSql, [values], async (itemErr) => {
+        if (itemErr) {
+          console.error("Order items insert error:", itemErr);
+          return res.status(500).json({ error: "Failed to create order items." });
+        }
+
+  // if stripe exists, go to stripe checkout
+    if (stripe) {
+      try{
+        const session = await stripe.checkout.sessions.create({
+        mode: "payment",
+        line_items: [
+         {
           price_data: {
             currency: "usd",
             product_data: {
               name: "BeautyNest Order"
             },
-            unit_amount: Math.round(amount * 100)
-                    },
-                    quantity: 1
-                }
-            ],
-            success_url: `${process.env.BASE_URL}/success.html`,
-            cancel_url: `${process.env.BASE_URL}/cancel.html`
+            unit_amount: Math.round(Number(total) * 100)
+          },
+          quantity: 1
+          }
+        ],
+          metadata: {
+            orderId: String(orderId),
+            userId: String(userId)
+          },
+          success_url: `${process.env.BASE_URL || "http://localhost:4900"}/success.html?orderId=${orderId}`,
+          cancel_url: `${process.env.BASE_URL || "http://localhost:4900"}/cancel.html?orderId=${orderId}`
         });
 
-        res.json({ url: session.url });
-    } catch (error) {
-        console.error("Stripe checkout session error:", error);
-        res.status(500).json({ error: "Failed to create checkout session" });
-    }
+      return res.json({
+        useStripe: true,
+        url: session.url,
+        orderId
+        });
+      } catch (stripeErr) {
+          console.error("Stripe checkout session error:", stripeErr);
+          return res.status(500).json({ error: "Failed to create Stripe checkout session." });
+        }
+      }
+
+  // if no stripe, mark order as paid directly
+    const updateSql = `
+      UPDATE orders
+      SET status = 'paid', payment_status = 'paid'
+      WHERE id = ?
+    `;
+
+    db.query(updateSql, [orderId], (updateErr) => {
+      if (updateErr) {
+        console.error("Order status update error:", updateErr);
+        return res.status(500).json({ error: "Order created but failed to update payment status" });
+      }
+
+      return res.json({
+        useStripe: false,
+        orderId,
+        message: "Order created successfully."
+        });
+      });
+    });
+  });
 });
+  } catch (error) {
+    console.error("Checkout error:", error);
+    res.status(500).json({ error: "Checkout failed." });
+  }
+});
+
+
 
 app.get("/api/test-direct", (req, res) => {
   res.send("direct route works");

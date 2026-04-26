@@ -35,7 +35,7 @@ async function loadOrders() {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${order.id}</td>
-        <td>${order.user_id}</td>
+        <td>${order.email}</td>
         <td>$${Number(order.total_amount).toFixed(2)}</td>
         <td>
           <select onchange="updateOrderStatus(${order.id}, this.value)">

@@ -117,7 +117,7 @@ function renderCart() {
         renderCart();
     });
 
-/*    // Handle checkout request
+    // Handle checkout request
     document.getElementById("checkoutBtn").addEventListener("click", async () => {
         const cart = getCart();
 
@@ -126,13 +126,39 @@ function renderCart() {
                 return;
         }
 
+        // Check login first
+        const meRes = await fetch("/api/me");
+        const meData = await meRes.json();
+
+        if (!meData.loggedIn) {
+            alert("Please log in before checkout.");
+            window.location.href = "/auth/google";
+            return;
+        }
+
+        const subtotal = getCartTotal();
+        const taxRate = 0.08875;
+        const tax = +(subtotal * taxRate).toFixed(2);
+        const total = +(subtotal + tax).toFixed(2);
+
         try {
             const response = await fetch("/api/checkout", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ items: cart })
+                body: JSON.stringify({ 
+                    items: cart.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                        price: Number(item.price),
+                        quantity: item.quantity
+                    })),
+                    subtotal,
+                    tax,
+                    total
+                })
+            
             });
 
             const data = await response.json();
@@ -141,20 +167,24 @@ function renderCart() {
                 throw new Error(data.error || "Checkout failed.");
             }
 
-            alert(`Order created successfully. Order ID: ${data.orderId}`);
+            // If Stripe is available, go to Stripe checkout page
+            if (data.useStripe && data.url) {
+                window.location.href = data.url;
+                return;
+            }
+
+            // If Stripe is not available, order is created directly
 
             clearCart();
             renderCart();
-
-        // Future improvement:
-        // Redirect to Stripe checkout page if integrated
-        // window.location.href = data.checkoutUrl;
+            alert(`Order created successfully. Order ID: ${data.orderId}`);
+            window.location.href = "/order_history";
 
         } catch (error) {
             console.error("Checkout error:", error);
             alert(error.message);
         }
-    });*/
+    });
 
     // Initialize cart page on load
     document.addEventListener("DOMContentLoaded", renderCart);
