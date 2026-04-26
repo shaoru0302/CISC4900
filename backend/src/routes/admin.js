@@ -12,37 +12,35 @@ router.get("/summary", (req, res) => {
       return res.status(500).json({ error: "Failed to fetch dashboard summary" });
     }
 
-    summary.totalProducts = results[0].totalProducts;
+  summary.totalProducts = results[0].totalProducts;
 
-    db.query("SELECT COUNT(*) AS totalOrders FROM orders", (err, results) => {
+  db.query("SELECT COUNT(*) AS totalOrders FROM orders", (err, results) => {
+    if (err) {
+      console.error("Error fetching totalOrders:", err);
+      return res.status(500).json({ error: "Failed to fetch dashboard summary" });
+    }
+
+  summary.totalOrders = results[0].totalOrders;
+
+  db.query(
+    "SELECT COUNT(*) AS pendingOrders FROM orders WHERE status = 'pending'", (err, results) => {
       if (err) {
-        console.error("Error fetching totalOrders:", err);
+        console.error("Error fetching pendingOrders:", err);
         return res.status(500).json({ error: "Failed to fetch dashboard summary" });
       }
 
-      summary.totalOrders = results[0].totalOrders;
+  summary.pendingOrders = results[0].pendingOrders;
 
-      db.query(
-        "SELECT COUNT(*) AS pendingOrders FROM orders WHERE status = 'pending'",
-        (err, results) => {
-          if (err) {
-            console.error("Error fetching pendingOrders:", err);
-            return res.status(500).json({ error: "Failed to fetch dashboard summary" });
-          }
+  db.query(
+    "SELECT COUNT(*) AS lowStockProducts FROM products WHERE stock < 5", (err, results) => {
+      if (err) {
+        console.error("Error fetching lowStockProducts:", err);
+        return res.status(500).json({ error: "Failed to fetch dashboard summary" });
+      }
 
-          summary.pendingOrders = results[0].pendingOrders;
-
-          db.query(
-            "SELECT COUNT(*) AS lowStockProducts FROM products WHERE stock < 5",
-            (err, results) => {
-              if (err) {
-                console.error("Error fetching lowStockProducts:", err);
-                return res.status(500).json({ error: "Failed to fetch dashboard summary" });
-              }
-
-              summary.lowStockProducts = results[0].lowStockProducts;
-              res.json(summary);
-            }
+  summary.lowStockProducts = results[0].lowStockProducts;
+    res.json(summary);
+    }
           );
         }
       );
