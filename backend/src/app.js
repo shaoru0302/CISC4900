@@ -142,7 +142,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/orders",orderRoutes);
 
 // checkout routes, use Stripe if configured, otherwise create order directly
-app.post("/api/checkout", requireAuth("user"), async (req, res) => {
+app.post("/api/checkout", requireAuth(), async (req, res) => {
     try {
     const { items, total } = req.body;
 
@@ -279,6 +279,10 @@ app.get("/api/test-direct", (req, res) => {
 
 const PORT = process.env.PORT || 4900;
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
