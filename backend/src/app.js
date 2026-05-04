@@ -10,8 +10,8 @@ console.log("APP FILE:", __filename);
 const express = require("express");
 const Stripe = require("stripe");
 const session = require("express-session");
-const passport = require("passport");
-require("./config/passport");
+//const passport = require("passport");
+//require("./config/passport");
 
 let stripe = null;
 if (process.env.STRIPE_SECRET_KEY) {
@@ -34,6 +34,19 @@ const FRONTEND_DIR = path.join(__dirname, "../../frontend");
 app.use(express.static(FRONTEND_DIR));
 app.use(express.json());
 
+// Allow catalog pages opened as file:// (Origin: null) to load JSON from this server
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api") || req.path === "/search") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(204);
+    }
+  }
+  next();
+});
+
 // session
 app.use(
   session({
@@ -43,8 +56,8 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 // always serve homepage
 app.get("/", (req, res) => {

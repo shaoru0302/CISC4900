@@ -38,14 +38,19 @@ router.get("/", (req, res) => {
   let values = [];
 
   if (category) {
-    const categories = category.split(",");
+    const categories = category
+      .split(",")
+      .map((c) => c.trim())
+      .filter(Boolean);
 
     if (categories.length === 1) {
-      sql += " WHERE category = ?";
+      sql += " WHERE LOWER(TRIM(category)) = LOWER(TRIM(?))";
       values.push(categories[0]);
-    } else {
-      const placeholders = categories.map(() => "?").join(",");
-      sql += ` WHERE category IN (${placeholders})`;
+    } else if (categories.length > 1) {
+      const placeholders = categories
+        .map(() => "LOWER(TRIM(category)) = LOWER(TRIM(?))")
+        .join(" OR ");
+      sql += ` WHERE (${placeholders})`;
       values.push(...categories);
     }
   }

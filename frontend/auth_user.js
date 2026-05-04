@@ -1,30 +1,37 @@
+if (typeof window.BEAUTYNEST_API_ORIGIN === "undefined") {
+  window.BEAUTYNEST_API_ORIGIN =
+    window.location.protocol === "file:" ? "http://127.0.0.1:4900" : "";
+}
+
+const API_ORIGIN = window.BEAUTYNEST_API_ORIGIN || "";
+
 function updateNavbarAndUserPage() {
-  fetch("/api/me")
-    .then(res => res.json())
-    .then(data => {
-      // auth login navbar
+  fetch(`${API_ORIGIN}/api/me`)
+    .then((res) => res.json())
+    .then((data) => {
       const authLink = document.getElementById("authLink");
 
       if (authLink) {
         if (data.loggedIn) {
           const dashboardLink =
-            data.role === "admin" ? "/admin" : "/user";
+            data.role === "admin"
+              ? `${API_ORIGIN}/admin`
+              : `${API_ORIGIN}/user`;
 
           authLink.innerHTML = `
             <a href="${dashboardLink}">Hi, ${data.displayName || "User"}</a>
-            <a href="/logout" style="margin-left:10px;">Logout</a>
+            <a href="${API_ORIGIN}/logout" style="margin-left:10px;">Logout</a>
           `;
         } else {
-          authLink.innerHTML = `<a href="/auth/google">Login</a>`;
+          authLink.innerHTML = `<a href="${API_ORIGIN}/auth/google">Login</a>`;
         }
       }
 
-      // user page welcome
       const welcome = document.getElementById("welcomeText");
 
       if (welcome) {
         if (!data.loggedIn) {
-          window.location.href = "/";
+          window.location.href = `${API_ORIGIN}/`;
           return;
         }
 

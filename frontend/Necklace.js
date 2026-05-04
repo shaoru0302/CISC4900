@@ -1,40 +1,75 @@
-fetch("/api/products?category=necklace")
-  .then(response => response.json())
-  .then(products => {
-    const productGrid = document.getElementById("product-grid");
+const origin = window.BEAUTYNEST_API_ORIGIN || "";
 
-    products.forEach(product => {
-      const card = document.createElement("div");
-      card.className = "product-card";
+function renderNecklaces(products) {
+  const productGrid = document.getElementById("product-grid");
+  if (!productGrid) return;
 
-      card.innerHTML = `
-        <a href="/detailed_page.html?id=${product.id}">
-          <img src="${product.image_url}" alt="${product.name}">
+  productGrid.innerHTML = "";
+
+  if (!products.length) {
+    productGrid.innerHTML =
+      '<p class="product-description" style="grid-column:1/-1;">No necklace products found. Import seed data into MySQL (<code>beautynest_products.csv</code>) or add rows with <code>category = necklace</code>.</p>';
+    return;
+  }
+
+  products.forEach((product) => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    const imgSrc = window.beautynestAssetUrl(product.image_url);
+    const detail = window.beautynestDetailUrl(product.id);
+    const name = window.beautynestEscapeHtml(product.name);
+    const desc = window.beautynestEscapeHtml(product.description || "");
+
+    card.innerHTML = `
+        <a href="${detail}">
+          <img src="${imgSrc}" alt="${name}">
         </a>
 
         <h3>
-          <a href="/detailed_page.html?id=${product.id}">${product.name}</a>
+          <a href="${detail}">${name}</a>
         </h3>
 
-        <p class="product-description">${product.description}</p>
+        <p class="product-description">${desc}</p>
         <p class="price">$${product.price}</p>
         <button class="btn">Add to Cart</button>
       `;
 
-      const button = card.querySelector(".btn");
+    const button = card.querySelector(".btn");
 
     button.addEventListener("click", () => {
-        addToCart({
-            id: product.id,
-            name: product.name,
-            price: Number(product.price),
-            image_url: product.image_url
-        });
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: Number(product.price),
+        image_url: product.image_url,
+      });
     });
 
     productGrid.appendChild(card);
-    });
+  });
+}
+
+fetch(`${origin}/api/products?category=necklace`)
+  .then((response) => {
+    if (!response.ok) {
+      return response.text().then((t) => {
+        throw new Error(t || response.statusText);
+      });
+    }
+    return response.json();
   })
-  .catch(error => {
+  .then((data) => {
+    if (data && data.error) {
+      throw new Error(data.error);
+    }
+    renderNecklaces(Array.isArray(data) ? data : []);
+  })
+  .catch((error) => {
     console.error("Fetch necklace products error:", error);
+    const productGrid = document.getElementById("product-grid");
+    if (productGrid) {
+      productGrid.innerHTML =
+        '<p class="product-description" style="grid-column:1/-1;color:#b91c1c;">Could not load products. Is the server running on <strong>http://127.0.0.1:4900</strong>? Open this page from that address after <code>node src/app.js</code> in the <code>backend</code> folder.</p>';
+    }
   });
