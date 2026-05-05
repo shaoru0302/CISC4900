@@ -1,93 +1,84 @@
 /**
  * Search Result Page Module
-
- * Fetches products based on the search keyword
- * and renders product cards with Add to Cart buttons.
- */
-
-/**
- * Get the search keyword from URL
- * Example: search-result.html?q=necklace
+ * Fetches products based on the search keyword and renders product cards.
  */
 
 function getSearchKeyword() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("q") || "";
+  const params = new URLSearchParams(window.location.search);
+  return params.get("q") || "";
 }
 
-/**
- * Fetch products from backend using keyword
- * @param {string} keyword
- * @returns {Promise<Array>}
- */
 async function fetchProducts(keyword) {
-    try {
-        const response = await fetch(`/search?q=${encodeURIComponent(keyword)}`);
-        if (!response.ok) {
-            throw new Error("Failed to fetch products.");
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error("Error fetching products:", error);
-        return [];
+  const origin = window.BEAUTYNEST_API_ORIGIN || "";
+  try {
+    const response = await fetch(
+      `${origin}/search?q=${encodeURIComponent(keyword)}`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch products.");
     }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
+  }
 }
 
-
-// Render products on the result page
 function renderProducts(products) {
-    const results = document.getElementById("results");
-    const message = document.getElementById("message");
+  const results = document.getElementById("results");
+  const message = document.getElementById("message");
 
-    if (!results) return;
+  if (!results) return;
 
-    results.innerHTML = "";
-    if (message) message.textContent = "";
+  results.innerHTML = "";
+  if (message) message.textContent = "";
 
-    if (products.length === 0) {
-        if (message) {
-            message.textContent = "No matching products found.";
-        }
-        return;
+  if (products.length === 0) {
+    if (message) {
+      message.textContent = "No matching products found.";
     }
+    return;
+  }
 
-    products.forEach(product => {
-        const card = document.createElement("div");
-        card.className = "product-card";
+  products.forEach((product) => {
+    const card = document.createElement("div");
+    card.className = "product-card";
 
-        card.innerHTML = `
-            <img src="${product.image_url}" alt="${product.name}" width="150">
-            <h3>${product.name}</h3>
+    const imgSrc = window.beautynestAssetUrl(product.image_url);
+    const name = window.beautynestEscapeHtml(product.name);
+
+    card.innerHTML = `
+            <img src="${imgSrc}" alt="${name}" width="150">
+            <h3>${name}</h3>
             <p>$${Number(product.price).toFixed(2)}</p>
             <button class="add-cart-btn">Add to Cart</button>
         `;
 
-        const button = card.querySelector(".add-cart-btn");
+    const button = card.querySelector(".add-cart-btn");
 
-        button.addEventListener("click", () => {
-            console.log("button clicked", product);
-            addToCart(product);
-        });
-
-        results.appendChild(card);
+    button.addEventListener("click", () => {
+      addToCart(product);
     });
+
+    results.appendChild(card);
+  });
 }
 
-
-// Initialize search result page
 async function initSearchResults() {
-    const keyword = getSearchKeyword();
-    const titleEl = document.getElementById("resultTitle");
+  const keyword = getSearchKeyword();
+  const titleEl =
+    document.getElementById("resultsTitle") ||
+    document.getElementById("resultTitle");
 
-    if (titleEl) {
-        titleEl.textContent = keyword
-            ? `Search Results for "${keyword}"`
-            : "All Products";
-    }
+  if (titleEl) {
+    titleEl.textContent = keyword
+      ? `Search Results for "${keyword}"`
+      : "All Products";
+  }
 
-    const products = await fetchProducts(keyword);
-    renderProducts(products);
+  const products = await fetchProducts(keyword);
+  renderProducts(products);
 }
 
 document.addEventListener("DOMContentLoaded", initSearchResults);
