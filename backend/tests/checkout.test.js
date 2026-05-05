@@ -1,3 +1,10 @@
+// checkout.test.js
+// API integration tests for the BeautyNest checkout endpoint.
+// Run from the backend folder:
+// npx jest tests/checkout.test.js
+// Or run all backend tests with:
+// npm test
+
 const request = require("supertest");
 const app = require("../src/app");
 

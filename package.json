@@ -1,6 +1,16 @@
 {
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "dependencies": {
     "dotenv": "^17.4.1",
     "stripe": "^22.0.2"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0"
   }
 }

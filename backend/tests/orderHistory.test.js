@@ -1,3 +1,10 @@
+// orderHistory.test.js
+// API integration tests for the BeautyNest order history endpoint.
+// Run from the backend folder:
+// npx jest tests/orderHistory.test.js
+// Or run all backend tests with:
+// npm test
+
 const request = require("supertest");
 const app = require("../src/app");
 
