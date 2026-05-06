@@ -1,7 +1,7 @@
 # Weekly Progress Log
 
 
-Last Updated: Apr 13, 2026
+Last Updated: May 6, 2026
 
 
 ---
@@ -377,3 +377,107 @@ Last Updated: Apr 13, 2026
 - Conduct end-to-end system testing
 
 - Prepare final presentation and demo
+
+
+---
+
+
+## Week 12 (Apr 13 – Apr 19)
+
+### Completed
+
+- Updated GitHub documentation and project board
+
+- Fixed authentication (admin/user) routes and layout issues
+
+- Studied Jest and designed frontend and backend testing strategy
+
+- Assigned testing tasks to each teammate and discussed UI improvements
+
+### In Progress
+
+- Implementing frontend unit tests (shopping cart, search, admin dashboard)
+  
+- Implementing backend API testing (supertest) (checkout,orderHistory)
+
+- Structuring test files for logic and UI testing
+
+### Next Steps
+
+- Complete frontend tests
+
+- Debug and validate system functionality
+
+
+---
+
+
+## Week 13 (Apr 20 – Apr 26)
+
+### Completed
+
+- Fixed database import issues and aligned checkout workflow
+
+- Implemented frontend unit tests (search and core features)
+
+- Debugged frontend logic and resolved test issues
+
+- Conducted supervisor meeting and applied feedback
+
+- Improved admin dashboard and resolved authentication issues
+
+- Developed UI interaction tests
+
+- Implemented backend API tests (checkout and order history)
+
+### In Progress
+
+- Completing admin dashboard unit tests
+
+- Refining frontend and backend test cases
+
+- Debugging backend issues (authentication and database)
+
+### Next Steps
+
+- Finalize all test cases
+
+- Resolve remaining backend issues
+
+- Prepare final deliverables
+
+
+---
+
+
+## Week 14 (Apr 27 – May 3)
+
+### Completed
+
+- Completed admin dashboard unit tests
+
+- Executed and debugged all frontend tests (logic + UI)
+
+- Executed backend API tests and resolved database issues
+
+- Finalized system features and fixed remaining bugs
+
+- Planned presentation and designed slide deck
+
+- Organized testing results and documentation
+
+### In Progress
+
+- Refining presentation and demo flow
+
+- Final UI polish and system adjustments
+
+### Next Steps
+
+- Complete presentation and demo recording
+
+- Conduct mock presentation
+
+- Submit final project deliverables
+
+
