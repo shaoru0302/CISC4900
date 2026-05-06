@@ -1,3 +1,6 @@
+// Run:
+// npx jest tests/home-ui.test.js
+
 const fs = require("fs");
 const path = require("path");
 

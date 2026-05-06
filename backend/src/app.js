@@ -10,8 +10,8 @@ console.log("APP FILE:", __filename);
 const express = require("express");
 const Stripe = require("stripe");
 const session = require("express-session");
-//const passport = require("passport");
-//require("./config/passport");
+const passport = require("passport");
+require("./config/passport");
 
 let stripe = null;
 if (process.env.STRIPE_SECRET_KEY) {
@@ -56,8 +56,8 @@ app.use(
   })
 );
 
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // always serve homepage
 app.get("/", (req, res) => {

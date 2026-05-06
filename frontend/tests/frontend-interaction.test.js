@@ -1,3 +1,6 @@
+// Run:
+// npx jest tests/frontend-interaction.test.js
+
 const fs = require("fs");
 const path = require("path");
 
